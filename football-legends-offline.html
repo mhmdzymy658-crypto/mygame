@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070d1c">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Legends">
+<title>FOOTBALL LEGENDS | مسابقه شناخت بازیکنان فوتبال</title>
+<style>
+:root{--night:#070d1c;--deep:#0c1630;--panel:#111d3b;--panel2:#16264a;--line:#25386b;--ink:#eaf1ff;--mute:#90a2c8;--gold:#f2c14e;--gold2:#ffdf8a;--grass:#18a054;--grass2:#0e6b3a;--neon:#2ee6ff;--bad:#ff5470;--ok:#3be08a;--r:18px}
+[data-theme=emerald]{--night:#04140d;--deep:#07261a;--panel:#0d3324;--panel2:#12432f;--line:#1d6a49;--mute:#8fc7ad}
+[data-theme=royal]{--night:#0a0820;--deep:#15103a;--panel:#1d1650;--panel2:#271e6b;--line:#4a3fa8;--mute:#a79fe0}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0}
+body{font-family:'Vazirmatn','IRANSans','Noto Sans Arabic','Segoe UI',Tahoma,sans-serif;background:var(--night);color:var(--ink);min-height:100dvh;overflow-x:hidden;line-height:1.6}
+button,input{font:inherit;color:inherit}
+button{border:0;background:none;cursor:pointer;touch-action:manipulation}
+:focus-visible{outline:2px solid var(--neon);outline-offset:2px}
+#bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:linear-gradient(180deg,var(--deep),var(--night) 55%,#052a16 100%)}
+#bg i{position:absolute;display:block}
+.beams{inset:0;background:conic-gradient(from 150deg at 8% -8%,transparent 0 12deg,rgba(255,248,210,.17) 22deg,transparent 34deg),conic-gradient(from 210deg at 92% -8%,transparent 0 12deg,rgba(255,248,210,.17) 22deg,transparent 34deg)}
+.crowd{left:0;right:0;top:46%;height:20%;background:radial-gradient(circle at 5px 5px,rgba(255,255,255,.09) 1.6px,transparent 2.2px) 0 0/13px 13px;-webkit-mask:linear-gradient(transparent,#000 40%,transparent);mask:linear-gradient(transparent,#000 40%,transparent)}
+.pitch{left:-20%;right:-20%;bottom:-6%;height:34%;background:repeating-linear-gradient(90deg,#0f6b3a 0 46px,#0b5c31 46px 92px);transform:perspective(260px) rotateX(48deg);transform-origin:bottom;opacity:.55;-webkit-mask:linear-gradient(transparent,#000 50%);mask:linear-gradient(transparent,#000 50%)}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:60;width:100%;height:100%}
+.shell{max-width:540px;margin:0 auto;padding:0 14px 110px}
+#top{position:sticky;top:0;z-index:20;margin:0 -14px;padding:10px 14px;background:linear-gradient(180deg,rgba(7,13,28,.96),rgba(7,13,28,.78));backdrop-filter:blur(8px)}
+.tb{display:flex;align-items:center;gap:10px}
+.who{flex:1;min-width:0}.who b{display:block;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.who small{color:var(--mute);font-size:11.5px}
+.xpb{height:5px;border-radius:5px;background:#1b2b56;margin-top:3px;overflow:hidden}.xpb u{display:block;height:100%;background:linear-gradient(90deg,var(--grass),var(--neon));border-radius:5px}
+.cur{display:flex;flex-direction:column;gap:4px}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:1px 10px;font-weight:800;font-size:13px}
+.ic{width:15px;height:15px;display:inline-block}
+.ic.coin{border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff3b0,var(--gold) 55%,#b07d12);box-shadow:inset 0 0 0 2px rgba(120,80,0,.4)}
+.ic.gem{background:linear-gradient(135deg,#bff6ff,var(--neon) 55%,#168aa3);transform:rotate(45deg) scale(.8);border-radius:3px}
+.av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:24px;overflow:hidden;flex:none;background:linear-gradient(var(--panel2),var(--panel2)) padding-box,linear-gradient(135deg,#46598f,#25386b) border-box;border:3px solid transparent}
+.av img{width:100%;height:100%;object-fit:cover}
+.av.f-gold{background:linear-gradient(var(--panel2),var(--panel2)) padding-box,linear-gradient(135deg,#fff0a8,#d9a014,#fff0a8) border-box}
+.av.f-neon{background:linear-gradient(var(--panel2),var(--panel2)) padding-box,linear-gradient(135deg,#2ee6ff,#3a63ff) border-box;box-shadow:0 0 12px #2ee6ff88}
+.av.f-flame{background:linear-gradient(var(--panel2),var(--panel2)) padding-box,linear-gradient(135deg,#ff3d3d,#ffb03a,#ff3d3d) border-box;box-shadow:0 0 12px #ff7a3a88}
+.av.big{width:92px;height:92px;font-size:50px;border-width:4px}
+.hero{text-align:center;padding:14px 0 6px}
+.logo{display:flex;flex-direction:column;align-items:center;line-height:.95;direction:ltr;font-family:Impact,'Arial Black','Haettenschweiler',sans-serif;font-style:italic;text-transform:uppercase}
+.logo span{font-size:25px;letter-spacing:7px;color:var(--neon);text-shadow:0 0 14px #2ee6ff77}
+.logo b{font-size:50px;background:linear-gradient(180deg,#fff6c9,var(--gold) 55%,#b57e14);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 3px 0 #5a3d05)}
+.logo small{direction:rtl;font-style:normal;font-family:inherit;text-transform:none;letter-spacing:0;color:var(--mute);font-size:13px;margin-top:6px}
+.heroCard{width:176px;margin:16px auto 6px;transform:rotate(-5deg);cursor:pointer;filter:drop-shadow(0 18px 24px #000a)}
+.cta{display:block;width:100%;padding:14px;border-radius:16px;font-weight:900;font-size:19px;color:#1b1400;background:linear-gradient(180deg,#ffe38f,var(--gold) 60%,#c58d14);box-shadow:0 5px 0 #7a5409,0 12px 24px #f2c14e33;position:relative;overflow:hidden}
+.cta small{display:block;font-size:12.5px;font-weight:700;opacity:.75}
+.cta:active{transform:translateY(3px);box-shadow:0 2px 0 #7a5409}
+.cta::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);animation:shine 4.5s ease-in-out infinite}
+@keyframes shine{0%,70%{left:-60%}100%{left:130%}}
+.cta.alt{background:linear-gradient(180deg,#34d77b,var(--grass) 60%,var(--grass2));color:#02170b;box-shadow:0 5px 0 #08431f}
+.cta.alt::after,.cta.sm::after{display:none}
+.cta.sm{padding:10px;font-size:15px;border-radius:13px}
+.ghost{width:100%;padding:11px;border-radius:14px;border:1px solid var(--line);background:var(--panel);font-weight:700}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.tile{position:relative;text-align:right;padding:14px 12px;border-radius:var(--r);background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);display:flex;flex-direction:column;gap:2px;min-height:86px}
+.tile:active{transform:scale(.97)}
+.tile em{font-style:normal;font-size:26px;line-height:1}.tile b{font-size:15px}.tile small{color:var(--mute);font-size:11.5px}
+.dot{position:absolute;top:10px;left:10px;width:11px;height:11px;border-radius:50%;background:var(--bad);box-shadow:0 0 0 3px #ff547033}
+.bar{display:flex;align-items:center;gap:10px;margin:8px 0 12px}.bar h2{margin:0;font-size:20px;flex:1}
+.back{width:40px;height:40px;border-radius:12px;background:var(--panel);border:1px solid var(--line);font-size:22px}
+h3{margin:18px 0 8px;font-size:16px}
+.card2{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-bottom:10px}
+.muted{color:var(--mute);font-size:13px}
+.row{display:flex;align-items:center;gap:10px}.sp{flex:1}
+.pill{display:inline-block;border-radius:20px;padding:1px 10px;font-size:11.5px;font-weight:800;background:#ffffff14;border:1px solid #ffffff22}
+.pill.gold{background:#f2c14e22;border-color:#f2c14e66;color:var(--gold2)}
+.bn{position:fixed;bottom:0;left:0;right:0;z-index:30;display:flex;justify-content:center;padding:0 0 env(safe-area-inset-bottom)}
+.bn div{display:flex;width:100%;max-width:540px;background:linear-gradient(180deg,rgba(17,29,59,.94),rgba(7,13,28,.98));border-top:1px solid var(--line);backdrop-filter:blur(10px)}
+.bn button{flex:1;padding:8px 0 9px;display:flex;flex-direction:column;align-items:center;gap:1px;color:var(--mute);font-size:11.5px;font-weight:700;position:relative}
+.bn button em{font-style:normal;font-size:22px;filter:grayscale(.8)}
+.bn button.on{color:var(--gold)}.bn button.on em{filter:none;transform:translateY(-3px) scale(1.12)}
+.bn button.on::before{content:"";position:absolute;top:0;width:34px;height:3px;border-radius:0 0 4px 4px;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+body.inq .bn,body.inq #top{display:none}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+/* player cards */
+.pc{--c:#9aa7b8;border-radius:14px;padding:3px;background:linear-gradient(160deg,var(--c),#1a2440 60%,var(--c));aspect-ratio:3/4.2;position:relative;box-shadow:0 0 18px color-mix(in srgb,var(--c) 45%,transparent)}
+.pc.r1{--c:#2ee6ff}.pc.r2{--c:#b46bff}.pc.r3{--c:#f2c14e}
+.pc.r4{background:linear-gradient(120deg,#ff7ad9,#2ee6ff,#f2c14e,#7dff9b,#ff7ad9);background-size:300% 300%;animation:holo 7s linear infinite;box-shadow:0 0 22px #ff7ad966}
+.pc.r3{animation:none}
+@keyframes holo{0%{background-position:0 50%}100%{background-position:300% 50%}}
+.pc-in{height:100%;border-radius:11px;background:linear-gradient(180deg,#16264a,#0a1226);display:flex;flex-direction:column;overflow:hidden;position:relative}
+.pc-top{position:absolute;top:5px;right:7px;z-index:2;text-align:center;line-height:1.1;text-shadow:0 1px 3px #000}
+.pc-top b{display:block;font-size:20px;color:var(--c);font-family:Impact,'Arial Black',sans-serif}.pc-top span{font-size:9.5px;font-weight:800}
+.pc-art{flex:1;min-height:0}.pc-art svg{width:100%;height:100%;display:block}
+.pc-name{font-weight:900;text-align:center;font-size:12.5px;padding:3px 4px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pc-sub{text-align:center;font-size:9.5px;color:var(--mute);padding:0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pc-rar{text-align:center;font-size:9.5px;font-weight:900;color:var(--c);padding:1px 0 4px}
+.pc.lock{--c:#33427a;filter:grayscale(1);opacity:.55}.pc.lock .pc-art{display:grid;place-items:center;font-size:34px;color:#4a5b94}
+.pc .cnt{position:absolute;bottom:22px;left:6px;z-index:3;background:#000a;border-radius:10px;padding:0 6px;font-size:11px;font-weight:800}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:6px}.chips button{flex:none;padding:5px 13px;border-radius:20px;background:var(--panel);border:1px solid var(--line);font-size:13px;font-weight:700}.chips button.on{background:var(--gold);color:#1b1400;border-color:var(--gold)}
+/* levels */
+.lv{aspect-ratio:1;border-radius:14px;background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;font-size:17px;position:relative}
+.lv small{font-size:10px;letter-spacing:1px;color:var(--gold);min-height:13px}
+.lv.cur{border-color:var(--gold);box-shadow:0 0 14px #f2c14e66}.lv.lk{opacity:.4}.lv.lk::after{content:"🔒";position:absolute;font-size:11px;top:3px;right:5px}
+.tier{display:flex;align-items:center;gap:8px;margin:18px 0 8px}.tier b{font-size:15px}.tier i{flex:1;height:1px;background:var(--line)}
+/* quiz */
+.qh{display:flex;align-items:center;gap:10px;padding:12px 0 6px}
+.x{width:38px;height:38px;border-radius:12px;background:var(--panel);border:1px solid var(--line);font-size:16px}
+.dots{display:flex;gap:5px;flex:1;justify-content:center}.dots i{width:22px;height:6px;border-radius:4px;background:#22335f}.dots i.d{background:var(--grass)}.dots i.c{background:var(--gold)}.dots i.b{background:var(--bad)}
+.sc{font-weight:900;color:var(--gold);min-width:56px;text-align:left;white-space:nowrap}
+.tbar{height:8px;border-radius:8px;background:#1b2b56;overflow:hidden;position:relative}.tbar u{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--grass),var(--neon));transition:width .1s linear}.tbar u.low{background:linear-gradient(90deg,var(--bad),#ff9a5a)}
+.qm{display:flex;justify-content:space-between;align-items:center;margin:8px 0}
+.stage{border-radius:22px;background:radial-gradient(120% 90% at 50% 0,#243a73,#0c1630);border:1px solid var(--line);padding:12px;margin:6px 0 10px;position:relative;overflow:hidden}
+.stage.flash{animation:flash .7s}
+@keyframes flash{0%{box-shadow:0 0 0 0 #3be08a}40%{box-shadow:0 0 40px 8px #3be08a99}100%{box-shadow:0 0 0 0 #3be08a00}}
+.stage.shake{animation:shake .4s}
+@keyframes shake{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+.portrait{width:170px;height:204px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px #000a;transition:filter .5s}
+.portrait svg{width:100%;height:100%;display:block}
+.tags{display:flex;justify-content:center;gap:8px;margin-top:10px;flex-wrap:wrap}
+.tags span{background:#ffffff14;border-radius:20px;padding:2px 12px;font-weight:800;font-size:13px}
+.info{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;font-size:14px}.info dt{color:var(--mute)}.info dd{margin:0;font-weight:800}
+.clues{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px;min-height:6px}.clues span{background:#2ee6ff1c;border:1px solid #2ee6ff66;border-radius:12px;padding:2px 11px;font-size:12.5px;font-weight:700;animation:pop .3s}
+@keyframes pop{from{transform:scale(.6);opacity:0}}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{min-height:62px;border-radius:15px;background:linear-gradient(160deg,var(--panel2),var(--panel));border:2px solid var(--line);font-weight:800;font-size:15px;padding:6px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.3}
+.opt small{font-size:10.5px;color:var(--mute);direction:ltr;font-weight:600}
+.opt:active:not(:disabled){transform:scale(.97)}
+.opt.good{background:linear-gradient(160deg,#1fa862,#0e6b3a);border-color:#6dffb0}.opt.bad{background:linear-gradient(160deg,#a8284a,#5e1126);border-color:var(--bad)}.opt.gone{opacity:.18}
+.boost{display:flex;gap:8px;margin-top:12px}.boost button{flex:1;padding:8px 4px;border-radius:13px;background:var(--panel);border:1px solid var(--line);font-size:12.5px;font-weight:800;display:flex;flex-direction:column;align-items:center}
+.boost button em{font-style:normal;color:var(--gold);font-size:11.5px}.boost button:disabled{opacity:.35}
+.fb{margin-top:12px;border-radius:16px;padding:12px;border:1px solid var(--line);background:var(--panel);animation:pop .25s}
+.fb.ok{border-color:var(--ok);background:#0f3d2a}.fb.no{border-color:var(--bad);background:#3d1223}
+.fb b{font-size:16px}.fb p{margin:4px 0 10px;font-size:13.5px;color:#d6e2ff}
+.stars{font-size:46px;letter-spacing:6px;color:#33427a;text-align:center}.stars i{font-style:normal}.stars i.on{color:var(--gold);text-shadow:0 0 18px var(--gold);animation:pop .5s backwards}
+.big{font-size:44px;font-weight:900;text-align:center;line-height:1.1}
+.sum{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}.sum div{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px 4px;text-align:center}.sum b{display:block;font-size:19px;color:var(--gold)}.sum small{color:var(--mute);font-size:11.5px}
+.prog{height:9px;border-radius:9px;background:#1b2b56;overflow:hidden}.prog u{display:block;height:100%;background:linear-gradient(90deg,var(--grass),var(--gold));border-radius:9px}
+.btn-s{padding:8px 16px;border-radius:12px;font-weight:900;font-size:13.5px;background:var(--gold);color:#1b1400}.btn-s:disabled{background:#2a3a6b;color:var(--mute)}.btn-s.neon{background:var(--neon)}
+.lb{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:14px;background:var(--panel);border:1px solid var(--line);margin-bottom:6px}
+.lb.me{border-color:var(--gold);background:#3a300f}.lb .rk{width:28px;text-align:center;font-weight:900;color:var(--mute)}.lb:nth-child(-n+3) .rk{color:var(--gold)}
+.lb .av{width:36px;height:36px;font-size:19px;border-width:2px}
+.ban{background:#2ee6ff14;border:1px dashed #2ee6ff88;border-radius:14px;padding:10px 12px;font-size:13px;margin-bottom:12px}
+.warn{background:#f2c14e14;border:1px dashed #f2c14e88}
+.days{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.day{border-radius:14px;background:var(--panel);border:1px solid var(--line);padding:10px 4px;text-align:center;font-size:12.5px;font-weight:700}.day.cur{border-color:var(--gold);box-shadow:0 0 14px #f2c14e55}.day.done{opacity:.45}.day em{display:block;font-style:normal;font-size:22px}
+#modal{position:fixed;inset:0;z-index:50;display:none;align-items:flex-end;justify-content:center;background:#02060ecc}#modal.on{display:flex}
+.sheet{width:100%;max-width:540px;max-height:88dvh;overflow:auto;background:linear-gradient(180deg,var(--panel2),var(--deep));border:1px solid var(--line);border-radius:26px 26px 0 0;padding:20px 16px calc(20px + env(safe-area-inset-bottom));animation:up .28s ease-out}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+.sheet h3:first-child{margin-top:0;font-size:19px}
+#modal.full{align-items:center}#modal.full .sheet{border-radius:26px;margin:0 12px}
+.flipwrap{display:flex;gap:10px;justify-content:center;margin:16px 0;perspective:900px}
+.flip{width:30%;max-width:150px;aspect-ratio:3/4.2;position:relative;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.8,.2,1);cursor:pointer}.flip.on{transform:rotateY(180deg)}
+.flip>*{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.flip .ft{transform:rotateY(180deg)}
+.flip .bk{border-radius:14px;background:repeating-linear-gradient(45deg,#16264a 0 8px,#1b2f5d 8px 16px);border:3px solid var(--gold);display:grid;place-items:center;font-size:34px;color:var(--gold)}
+.dup{position:absolute;bottom:-4px;left:0;right:0;text-align:center;font-size:10.5px;font-weight:900;color:var(--gold);z-index:3;text-shadow:0 1px 3px #000}
+#toast{position:fixed;top:12px;left:0;right:0;z-index:80;display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none}
+#toast div{background:#0b1430f2;border:1px solid var(--gold);color:var(--ink);padding:8px 16px;border-radius:14px;font-weight:800;font-size:14px;box-shadow:0 8px 24px #000a;animation:tin .25s,tout .3s 2.4s forwards;max-width:92vw;text-align:center}
+@keyframes tin{from{transform:translateY(-14px);opacity:0}}@keyframes tout{to{opacity:0;transform:translateY(-10px)}}
+input[type=text],input[type=password]{width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--deep);outline:0}
+input[type=range]{width:100%;accent-color:var(--gold)}
+.seg{display:flex;gap:6px}.seg button{flex:1;padding:8px;border-radius:12px;background:var(--panel);border:1px solid var(--line);font-weight:800}.seg button.on{background:var(--gold);color:#1b1400}
+.shopi{display:flex;align-items:center;gap:10px;padding:10px;border-radius:14px;background:var(--panel);border:1px solid var(--line);margin-bottom:8px}.shopi em{font-style:normal;font-size:28px;width:40px;text-align:center}.shopi div{flex:1}.shopi b{display:block;font-size:14.5px}.shopi small{color:var(--mute);font-size:12px}
+.path{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 6px;margin-top:10px}.path span{background:#f2c14e22;border:1px solid #f2c14e66;border-radius:10px;padding:1px 9px;font-size:12.5px;font-weight:800}.path i{font-style:normal;color:var(--gold)}
+.fpitch{position:relative;aspect-ratio:3/4;border-radius:20px;border:2px solid #ffffff55;overflow:hidden;background:repeating-linear-gradient(0deg,#0f7a42 0 12.5%,#0c6a38 12.5% 25%);margin-bottom:10px}
+.fpitch::before{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:#ffffff55}.fpitch::after{content:"";position:absolute;left:35%;right:35%;top:calc(50% - 15%);aspect-ratio:1;border:2px solid #ffffff55;border-radius:50%;pointer-events:none}
+.slot{position:absolute;transform:translate(-50%,-50%);width:19%;display:flex;flex-direction:column;align-items:center;gap:1px;z-index:2}
+.slot .sa{width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:2px solid var(--gold);background:#0b1330;display:grid;place-items:center;font-size:22px;font-weight:900;color:var(--gold)}.slot .sa svg{width:100%;height:100%}.slot .sa.empty{border-style:dashed;background:#00000040}
+.slot b{font-size:10.5px;text-shadow:0 1px 3px #000;white-space:nowrap}.slot small{font-size:10px;color:#fff;text-shadow:0 1px 3px #000}
+@keyframes sheen{0%,60%{transform:translateX(-120%) skewX(-20deg)}100%{transform:translateX(260%) skewX(-20deg)}}
+.pc-in::after{content:"";position:absolute;top:0;bottom:0;width:35%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);animation:sheen 5s ease-in-out infinite;pointer-events:none}
+.pc-in{box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),inset 0 -30px 40px rgba(0,0,0,.35)}
+.pc{transition:transform .25s}.pc:hover{transform:translateY(-4px) scale(1.03)}
+.stage{box-shadow:0 0 40px rgba(46,230,255,.12),inset 0 0 60px rgba(0,0,0,.35)}
+.portrait{box-shadow:0 14px 40px #000c,0 0 0 2px rgba(242,193,78,.5),0 0 30px rgba(242,193,78,.25)}
+.opt{box-shadow:0 4px 0 #0a1330}.opt.good{box-shadow:0 0 22px #3be08a88}
+.tile{box-shadow:0 6px 18px #0006,inset 0 1px 0 #ffffff14}
+@media(min-width:900px){body{font-size:17px}.shell{max-width:600px}.bn div{max-width:600px}.shell,.bn div{box-shadow:0 0 80px #2ee6ff14}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="bg"><i class="beams"></i><i class="crowd"></i><i class="pitch"></i></div>
+<div class="shell"><header id="top"></header><main id="main"></main></div>
+<nav class="bn" id="nav"></nav>
+<canvas id="fx"></canvas><div id="modal"></div><div id="toast"></div>
+<input type="file" id="file" accept="image/*" hidden><input type="file" id="pfile" accept="image/*" hidden>
+<script>
+'use strict';
+/* ============ ابزارها ============ */
+const $=s=>document.querySelector(s);
+const fa=n=>Number(n).toLocaleString('fa-IR');
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+function hashStr(s){let h=1779033703^s.length;for(let i=0;i<s.length;i++){h=Math.imul(h^s.charCodeAt(i),3432918353);h=h<<13|h>>>19}return h>>>0}
+function rngFrom(seed){let a=seed>>>0;return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function shuffle(arr,r){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+const ymd=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const today=()=>ymd(new Date());
+const yesterday=()=>{const d=new Date();d.setDate(d.getDate()-1);return ymd(d)};
+
+/* ============ داده بازیکنان (۶۲ بازیکن) ============ */
+const NAT={AR:['آرژانتین','🇦🇷','#75aadb','#ffffff'],PT:['پرتغال','🇵🇹','#c8102e','#0b6b3a'],BR:['برزیل','🇧🇷','#f6d11a','#0a8f3f'],FR:['فرانسه','🇫🇷','#1d3f9a','#e30613'],IT:['ایتالیا','🇮🇹','#0a5bb5','#ffffff'],ES:['اسپانیا','🇪🇸','#c8102e','#ffc400'],NO:['نروژ','🇳🇴','#c8102e','#1b2a6b'],EG:['مصر','🇪🇬','#c8102e','#f2f2f2'],BE:['بلژیک','🇧🇪','#d71920','#fdda24'],HR:['کرواسی','🇭🇷','#e11d2e','#ffffff'],PL:['لهستان','🇵🇱','#e11d48','#ffffff'],NL:['هلند','🇳🇱','#ff7a00','#ffffff'],DE:['آلمان','🇩🇪','#f4f4f4','#1b1b1b'],IR:['ایران','🇮🇷','#1f9d4d','#d62828'],GB:['انگلیس','🇬🇧','#f4f4f4','#1b2a6b'],SE:['سوئد','🇸🇪','#1e6fb8','#ffd23f'],SU:['شوروی','🔴','#b3121f','#ffd23f'],KR:['کره جنوبی','🇰🇷','#d9232d','#1c3f94'],BG:['بلغارستان','🇧🇬','#2f9e5a','#d62828'],LR:['لیبریا','🇱🇷','#c8102e','#1b3a8a'],CM:['کامرون','🇨🇲','#0a8f3f','#e5262b'],CI:['ساحل عاج','🇨🇮','#ff8a00','#0a8f3f'],DK:['دانمارک','🇩🇰','#d62839','#ffffff'],RO:['رومانی','🇷🇴','#f6d11a','#1d3f9a'],CZ:['جمهوری چک','🇨🇿','#d62839','#1d3f9a'],UA:['اوکراین','🇺🇦','#ffd23f','#1d6fd1'],UY:['اروگوئه','🇺🇾','#75aadb','#ffffff'],CO:['کلمبیا','🇨🇴','#ffd23f','#1d3f9a'],MX:['مکزیک','🇲🇽','#0a8f3f','#d62839'],CL:['شیلی','🇨🇱','#d62839','#1d3f9a'],GH:['غنا','🇬🇭','#d62839','#ffd23f'],NG:['نیجریه','🇳🇬','#0a8f3f','#ffffff'],SN:['سنگال','🇸🇳','#0a8f3f','#ffd23f'],DZ:['الجزایر','🇩🇿','#f4f4f4','#0a8f3f'],MA:['مراکش','🇲🇦','#c8102e','#0a8f3f'],JP:['ژاپن','🇯🇵','#1d3f9a','#ffffff'],AU:['استرالیا','🇦🇺','#ffd23f','#0a8f3f'],CA:['کانادا','🇨🇦','#d62839','#ffffff'],CH:['سوئیس','🇨🇭','#d62839','#ffffff'],AT:['اتریش','🇦🇹','#d62839','#ffffff'],RS:['صربستان','🇷🇸','#c8102e','#1d3f9a'],BA:['بوسنی','🇧🇦','#1d3f9a','#ffd23f'],TR:['ترکیه','🇹🇷','#d62839','#ffffff'],HU:['مجارستان','🇭🇺','#d62839','#2f9e5a'],CR:['کاستاریکا','🇨🇷','#d62839','#1d3f9a'],NI:['ایرلند شمالی','🇬🇧','#0a8f3f','#ffffff']};
+const POSN={G:'دروازه‌بان',D:'مدافع',M:'هافبک',F:'مهاجم'};
+const PL=[],PM={};
+function P(id,f,en,nat,pos,num,clubs,facts,diff,ovr){const o={id,fa:f,en,nat,pos,num,clubs,f:facts,diff,ovr};PL.push(o);PM[id]=o}
+P('messi','لیونل مسی','Lionel Messi','AR','F',10,['بارسلونا','پاری‌سن‌ژرمن','اینتر میامی'],['قهرمان جام جهانی ۲۰۲۲','۸ توپ طلا','بیش از ۸۰۰ گل رسمی (تقریبی)'],1,97);
+P('cr7','کریستیانو رونالدو','Cristiano Ronaldo','PT','F',7,['اسپورتینگ لیسبون','منچستر یونایتد','رئال مادرید','یوونتوس','النصر'],['۵ توپ طلا','۵ قهرمانی لیگ قهرمانان اروپا','بیش از ۹۰۰ گل رسمی (تقریبی)'],1,96);
+P('pele','پله','Pelé','BR','F',10,['سانتوس','کازموس نیویورک'],['۳ قهرمانی جام جهانی (۱۹۵۸، ۱۹۶۲، ۱۹۷۰)','نخستین نوجوان گلزن فینال جام جهانی','بیش از ۱۲۰۰ گل ادعایی (تقریبی و محل بحث)'],1,97);
+P('maradona','دیه‌گو مارادونا','Diego Maradona','AR','M',10,['بوکاجونیورز','بارسلونا','ناپولی'],['کاپیتان قهرمان جام جهانی ۱۹۸۶','گل «دست خدا» و «گل قرن» در یک بازی','۲ قهرمانی سری آ با ناپولی'],1,96);
+P('zidane','زین‌الدین زیدان','Zinedine Zidane','FR','M',10,['کان','بوردو','یوونتوس','رئال مادرید'],['قهرمان جام جهانی ۱۹۹۸ و یورو ۲۰۰۰','توپ طلا ۱۹۹۸','گل تماشایی فینال لیگ قهرمانان ۲۰۰۲'],1,95);
+P('r9','رونالدو نازاریو','Ronaldo Nazário','BR','F',9,['کروزیرو','پی‌اس‌وی','بارسلونا','اینتر','رئال مادرید','میلان'],['قهرمان جام جهانی ۲۰۰۲ و آقای گل آن','۲ توپ طلا (۱۹۹۷ و ۲۰۰۲)','۱۵ گل در جام‌های جهانی'],2,95);
+P('rdinho','رونالدینیو','Ronaldinho','BR','M',10,['پاری‌سن‌ژرمن','بارسلونا','میلان'],['توپ طلا ۲۰۰۵','قهرمان جام جهانی ۲۰۰۲','قهرمان لیگ قهرمانان ۲۰۰۶'],2,92);
+P('henry','تیری آنری','Thierry Henry','FR','F',14,['موناکو','یوونتوس','آرسنال','بارسلونا'],['۲۲۸ گل برای آرسنال؛ رکورد باشگاه','قهرمان جام جهانی ۱۹۹۸','۴ بار آقای گل لیگ برتر'],2,91);
+P('maldini','پائولو مالدینی','Paolo Maldini','IT','D',3,['میلان'],['۵ قهرمانی لیگ قهرمانان','بیش از ۹۰۰ بازی برای تنها باشگاه دوران حرفه‌ای','کاپیتان ایتالیا'],3,93);
+P('iniesta','آندرس اینیستا','Andrés Iniesta','ES','M',8,['بارسلونا','ویسل کوبه'],['گلزن فینال جام جهانی ۲۰۱۰','۴ قهرمانی لیگ قهرمانان','بهترین بازیکن یورو ۲۰۱۲'],2,91);
+P('xavi','ژاوی','Xavi','ES','M',6,['بارسلونا','السد'],['قهرمان جام جهانی ۲۰۱۰ و دو یورو','۴ قهرمانی لیگ قهرمانان','بیش از ۷۶۰ بازی برای بارسلونا (تقریبی)'],2,90);
+P('mbappe','کیلیان امباپه','Kylian Mbappé','FR','F',10,['موناکو','پاری‌سن‌ژرمن','رئال مادرید'],['قهرمان جام جهانی ۲۰۱۸','هت‌تریک در فینال جام جهانی ۲۰۲۲','آقای گل جام جهانی ۲۰۲۲ با ۸ گل'],1,92);
+P('haaland','ارلینگ هالند','Erling Haaland','NO','F',9,['مولده','سالزبورگ','دورتموند','منچسترسیتی'],['۳۶ گل در یک فصل لیگ برتر؛ رکورد','سه‌گانه تاریخی ۲۰۲۳ با سیتی','کفش طلای لیگ برتر ۲۰۲۳'],1,91);
+P('salah','محمد صلاح','Mohamed Salah','EG','F',11,['بازل','چلسی','فیورنتینا','رم','لیورپول'],['قهرمان لیگ قهرمانان ۲۰۱۹','چند بار کفش طلای لیگ برتر','قهرمان لیگ برتر ۲۰۲۰ و ۲۰۲۵'],1,90);
+P('kdb','کوین دی‌بروینه','Kevin De Bruyne','BE','M',7,['خنک','چلسی','ولفسبورگ','منچسترسیتی'],['۶ قهرمانی لیگ برتر','قهرمان لیگ قهرمانان ۲۰۲۳','چند بار بهترین پاسور لیگ برتر'],2,90);
+P('modric','لوکا مودریچ','Luka Modrić','HR','M',10,['دینامو زاگرب','تاتنهام','رئال مادرید','میلان'],['توپ طلا ۲۰۱۸','۶ قهرمانی لیگ قهرمانان','نایب‌قهرمان جهان ۲۰۱۸'],2,90);
+P('lewa','روبرت لواندوفسکی','Robert Lewandowski','PL','F',9,['لخ پوزنان','دورتموند','بایرن مونیخ','بارسلونا'],['۴۱ گل در یک فصل بوندسلیگا؛ رکورد','قهرمان لیگ قهرمانان ۲۰۲۰','کفش طلای اروپا ۲۰۲۰ و ۲۰۲۱'],2,90);
+P('neymar','نیمار','Neymar','BR','F',10,['سانتوس','بارسلونا','پاری‌سن‌ژرمن','الهلال'],['قهرمان لیگ قهرمانان ۲۰۱۵','مدال طلای المپیک ۲۰۱۶','بهترین گلزن تاریخ تیم ملی کشورش'],1,91);
+P('benzema','کریم بنزما','Karim Benzema','FR','F',9,['لیون','رئال مادرید','الاتحاد'],['توپ طلا ۲۰۲۲','۵ قهرمانی لیگ قهرمانان','دومین گلزن برتر تاریخ رئال مادرید'],2,90);
+P('ramos','سرخیو راموس','Sergio Ramos','ES','D',4,['سویا','رئال مادرید','پاری‌سن‌ژرمن'],['۴ قهرمانی لیگ قهرمانان','قهرمان جام جهانی ۲۰۱۰ و دو یورو','بیش از ۱۸۰ بازی ملی (تقریبی)'],2,88);
+P('vvd','فیرژیل فن‌دایک','Virgil van Dijk','NL','D',4,['خرونینگن','سلتیک','ساوتهمپتون','لیورپول'],['قهرمان لیگ قهرمانان ۲۰۱۹','کاپیتان تیم ملی هلند','قهرمان لیگ برتر با لیورپول'],2,88);
+P('neuer','مانوئل نویر','Manuel Neuer','DE','G',1,['شالکه','بایرن مونیخ'],['قهرمان جام جهانی ۲۰۱۴','دستکش طلای جام جهانی ۲۰۱۴','۲ سه‌گانه با بایرن'],2,90);
+P('buffon','جانلوئیجی بوفون','Gianluigi Buffon','IT','G',1,['پارما','یوونتوس','پاری‌سن‌ژرمن'],['قهرمان جام جهانی ۲۰۰۶','۱۰ قهرمانی سری آ با یوونتوس','رکورددار انتقال دروازه‌بان در زمان خود'],3,91);
+P('casillas','ایکر کاسیاس','Iker Casillas','ES','G',1,['رئال مادرید','پورتو'],['کاپیتان قهرمان جهان ۲۰۱۰','قهرمان یورو ۲۰۰۸ و ۲۰۱۲','۳ قهرمانی لیگ قهرمانان با رئال'],3,89);
+P('cruyff','یوهان کرایف','Johan Cruyff','NL','F',14,['آژاکس','بارسلونا'],['۳ توپ طلا','نماد فوتبال توتال','۳ جام باشگاهان اروپا با آژاکس'],3,95);
+P('beck','فرانتس بکن‌باوئر','Franz Beckenbauer','DE','D',5,['بایرن مونیخ','کازموس نیویورک','هامبورگ'],['کاپیتان قهرمان جهان ۱۹۷۴','سرمربی قهرمان جهان ۱۹۹۰','۲ توپ طلا'],4,94);
+P('daei','علی دایی','Ali Daei','IR','F',9,['آرمینیا بیله‌فلد','بایرن مونیخ','هرتا برلین'],['۱۰۹ گل ملی؛ رکورد جهانی تا ۲۰۲۱','بهترین گلزن تاریخ تیم ملی کشورش','بازیکن بایرن مونیخ در بوندسلیگا'],2,86);
+P('taremi','مهدی طارمی','Mehdi Taremi','IR','F',9,['پرسپولیس','الغرافه','ریو آوه','پورتو','اینتر'],['از برترین گلزنان تاریخ تیم ملی کشورش','قهرمان لیگ پرتغال با پورتو','بازیکن اینتر در ۲۰۲۴/۲۵'],2,82);
+P('azmoun','سردار آزمون','Sardar Azmoun','IR','F',20,['روبین کازان','زنیت','بایر لورکوزن','رم'],['از گلزنان تیم ملی کشورش','قهرمان لیگ روسیه با زنیت','بازیکن لورکوزن و رم'],3,80);
+P('baggio','روبرتو باجو','Roberto Baggio','IT','F',10,['فیورنتینا','یوونتوس','میلان','اینتر','برشا'],['توپ طلا ۱۹۹۳','نایب‌قهرمان جام جهانی ۱۹۹۴','معروف به «دم‌اسبی الهی»'],3,91);
+P('pirlo','آندره آ پیرلو','Andrea Pirlo','IT','M',21,['برشا','اینتر','میلان','یوونتوس','نیویورک سیتی'],['قهرمان جام جهانی ۲۰۰۶','۲ قهرمانی لیگ قهرمانان با میلان','بهترین بازیکن یورو ۲۰۱۲'],3,90);
+P('gerrard','استیون جرارد','Steven Gerrard','GB','M',8,['لیورپول','ال‌ای گلکسی'],['قهرمان لیگ قهرمانان ۲۰۰۵ (شب استانبول)','بیش از ۷۰۰ بازی برای باشگاه محبوبش','هرگز قهرمان لیگ برتر نشد'],2,89);
+P('rooney','وین رونی','Wayne Rooney','GB','F',10,['اورتون','منچستر یونایتد','دی‌سی یونایتد','دربی'],['بهترین گلزن تاریخ منچستر یونایتد (۲۵۳ گل)','قهرمان لیگ قهرمانان ۲۰۰۸','۵ قهرمانی لیگ برتر'],2,88);
+P('beckham','دیوید بکام','David Beckham','GB','M',7,['منچستر یونایتد','رئال مادرید','ال‌ای گلکسی','میلان','پاری‌سن‌ژرمن'],['۶ قهرمانی لیگ برتر','عضو سه‌گانه ۱۹۹۹ یونایتد','کاپیتان تیم ملی کشورش'],1,87);
+P('cantona','اریک کانتونا','Eric Cantona','FR','F',7,['اوکسر','مارسی','لیدز','منچستر یونایتد'],['۴ قهرمانی لیگ برتر با یونایتد','نماد شماره ۷ یونایتد','بازیکن سال لیگ ۱۹۹۶'],3,86);
+P('ibra','زلاتان ابراهیموویچ','Zlatan Ibrahimović','SE','F',10,['مالمو','آژاکس','یوونتوس','اینتر','بارسلونا','میلان','پاری‌سن‌ژرمن','منچستر یونایتد'],['قهرمان لیگ در ۴ کشور مختلف','بهترین گلزن تاریخ تیم ملی کشورش','بازیکن میلان و منچستر یونایتد'],2,89);
+P('yashin','لو یاشین','Lev Yashin','SU','G',1,['دینامو مسکو'],['تنها دروازه‌بان برنده توپ طلا (۱۹۶۳)','معروف به «عنکبوت سیاه»','قهرمان یورو ۱۹۶۰'],5,93);
+P('eusebio','اوزبیو','Eusébio','PT','F',10,['بنفیکا'],['آقای گل جام جهانی ۱۹۶۶','توپ طلا ۱۹۶۵','معروف به «پلنگ سیاه»'],5,92);
+P('vanbasten','مارکو فن‌باستن','Marco van Basten','NL','F',9,['آژاکس','میلان'],['۳ توپ طلا','قهرمان یورو ۱۹۸۸ با گل فوق‌العاده فینال','قهرمان لیگ قهرمانان با میلان'],4,93);
+P('platini','میشل پلاتینی','Michel Platini','FR','M',10,['نانسی','سن‌اتین','یوونتوس'],['۳ توپ طلای پیاپی (۱۹۸۳ تا ۱۹۸۵)','قهرمان یورو ۱۹۸۴ و آقای گل آن','قهرمان جام باشگاهان ۱۹۸۵ با یوونتوس'],4,92);
+P('son','سون هیونگ‌مین','Son Heung-min','KR','F',7,['هامبورگ','بایر لورکوزن','تاتنهام','لس‌آنجلس اف‌سی'],['کفش طلای لیگ برتر ۲۰۲۱/۲۲','نخستین آسیایی کفش طلای لیگ برتر','قهرمان لیگ اروپا ۲۰۲۵ با تاتنهام'],2,87);
+P('bellingham','جود بلینگام','Jude Bellingham','GB','M',null,['برمینگام','دورتموند','رئال مادرید'],['جایزه گلدن‌بوی ۲۰۲۳','قهرمان لالیگا و لیگ قهرمانان ۲۰۲۳/۲۴','نایب‌قهرمان یورو ۲۰۲۴'],2,90);
+P('yamal','لامین یامال','Lamine Yamal','ES','F',null,['بارسلونا'],['قهرمان یورو ۲۰۲۴','جوان‌ترین گلزن تاریخ یورو','برنده جایزه کوپا ۲۰۲۴'],2,88);
+P('vini','وینیسیوس جونیور','Vinícius Júnior','BR','F',7,['فلامنگو','رئال مادرید'],['گلزن فینال لیگ قهرمانان ۲۰۲۲','قهرمان لیگ قهرمانان ۲۰۲۴','ستاره‌ای از فلامنگو تا مادرید'],2,90);
+P('stoichkov','هریستو استویچکوف','Hristo Stoichkov','BG','F',8,['ثسکا صوفیه','بارسلونا','پارما'],['کفش طلای مشترک جام جهانی ۱۹۹۴','توپ طلا ۱۹۹۴','قهرمان لیگ قهرمانان ۱۹۹۲'],5,87);
+P('weah','جورج وا','George Weah','LR','F',14,['موناکو','پاری‌سن‌ژرمن','میلان','چلسی'],['توپ طلا ۱۹۹۵؛ نخستین آفریقایی','بعدها رئیس‌جمهور کشورش شد','بازیکن میلان و پاری‌سن‌ژرمن'],5,87);
+P('etoo','ساموئل اتوو','Samuel Eto\'o','CM','F',9,['مایورکا','بارسلونا','اینتر'],['۴ بار بهترین بازیکن سال آفریقا','قهرمان سه‌گانه با دو باشگاه مختلف','قهرمان لیگ قهرمانان ۲۰۰۶، ۲۰۰۹ و ۲۰۱۰'],3,87);
+P('drogba','دیدیه دروگبا','Didier Drogba','CI','F',11,['مارسی','چلسی','گالاتاسرای','شانگهای'],['قهرمان لیگ قهرمانان ۲۰۱۲؛ گلزن فینال','۴ قهرمانی لیگ برتر','۲ بار کفش طلای لیگ برتر'],3,87);
+P('cafu','کافو','Cafu','BR','D',2,['پالمیراس','رم','میلان'],['قهرمان جام جهانی ۱۹۹۴ و ۲۰۰۲','کاپیتان قهرمان جهان ۲۰۰۲','حضور در ۳ فینال پیاپی جام جهانی'],3,88);
+P('rcarlos','روبرتو کارلوس','Roberto Carlos','BR','D',6,['پالمیراس','اینتر','رئال مادرید','فنرباغچه'],['قهرمان جام جهانی ۲۰۰۲','۳ قهرمانی لیگ قهرمانان با رئال','فری‌کیک افسانه‌ای سال ۱۹۹۷'],3,88);
+P('puyol','کارلس پویول','Carles Puyol','ES','D',5,['بارسلونا'],['قهرمان جام جهانی ۲۰۱۰؛ گلزن نیمه‌نهایی','۳ قهرمانی لیگ قهرمانان','کاپیتان باشگاه تنها دوران حرفه‌ای‌اش'],3,86);
+P('cannavaro','فابیو کاناوارو','Fabio Cannavaro','IT','D',5,['ناپولی','پارما','اینتر','یوونتوس','رئال مادرید'],['توپ طلا ۲۰۰۶؛ مدافع برنده','کاپیتان قهرمان جام جهانی ۲۰۰۶','بازیکن سال فیفا ۲۰۰۶'],4,88);
+P('matthaus','لوتار ماتئوس','Lothar Matthäus','DE','M',10,['گلادباخ','بایرن مونیخ','اینتر'],['کاپیتان قهرمان جام جهانی ۱۹۹۰','توپ طلا ۱۹۹۰','حضور در ۵ جام جهانی'],3,90);
+P('klose','میروسلاو کلوزه','Miroslav Klose','DE','F',11,['کایزرسلاوترن','وردربرمن','بایرن مونیخ','لاتزیو'],['بهترین گلزن تاریخ جام جهانی (۱۶ گل)','قهرمان جام جهانی ۲۰۱۴','حضور در ۴ جام جهانی'],3,85);
+P('muller','توماس مولر','Thomas Müller','DE','F',25,['بایرن مونیخ','ونکوور وایت‌کپس'],['قهرمان جام جهانی ۲۰۱۴','کفش طلای جام جهانی ۲۰۱۰','۲ قهرمانی لیگ قهرمانان'],3,86);
+P('hagi','گئورگه هاجی','Gheorghe Hagi','RO','M',10,['استیوا','رئال مادرید','بارسلونا','گالاتاسرای'],['معروف به «مارادونای کارپات»','ستاره رومانی در جام جهانی ۱۹۹۴','بازیکن رئال، بارسلونا و گالاتاسرای'],4,86);
+P('bergkamp','دنیس برخکمپ','Dennis Bergkamp','NL','F',10,['آژاکس','اینتر','آرسنال'],['معروف به «هلندی غیرپرنده»','عضو تیم شکست‌ناپذیر ۲۰۰۳/۰۴','گل زیبای جام جهانی ۱۹۹۸ مقابل آرژانتین'],4,89);
+P('schmeichel','پیتر اشمایکل','Peter Schmeichel','DK','G',1,['منچستر یونایتد','اسپورتینگ'],['دروازه‌بان سه‌گانه ۱۹۹۹ یونایتد','قهرمان یورو ۱۹۹۲','۵ قهرمانی لیگ برتر'],4,87);
+P('nedved','پاول ندود','Pavel Nedvěd','CZ','M',11,['اسپارتا پراگ','لاتزیو','یوونتوس'],['توپ طلا ۲۰۰۳','فینالیست یورو ۱۹۹۶','ستاره لاتزیو و یوونتوس'],4,88);
+P('shev','آندری شوچنکو','Andriy Shevchenko','UA','F',7,['دینامو کیف','میلان','چلسی'],['توپ طلا ۲۰۰۴','قهرمان لیگ قهرمانان ۲۰۰۳؛ پنالتی فینال','بهترین گلزن تاریخ تیم ملی کشورش'],3,89);
+P('park','پارک جی‌سونگ','Park Ji-sung','KR','M',null,['پی‌اس‌وی','منچستر یونایتد'],['قهرمان لیگ قهرمانان ۲۰۰۸','نخستین آسیایی قهرمان لیگ قهرمانان','حضور در ۳ جام جهانی'],4,82);
+
+P('suarez','لوئیس سوارز','Luis Suárez','UY','F',9,['خرونینگن','آژاکس','لیورپول','بارسلونا','اتلتیکو مادرید','اینتر میامی'],['کفش طلای اروپا ۲۰۱۴ و ۲۰۱۶','قهرمان لیگ قهرمانان ۲۰۱۵','بهترین گلزن تاریخ تیم ملی کشورش'],2,89);
+P('cavani','ادینسون کاوانی','Edinson Cavani','UY','F',21,['پالرمو','ناپولی','پاری‌سن‌ژرمن','منچستر یونایتد','والنسیا','بوکاجونیورز'],['قهرمان کوپا آمریکا ۲۰۱۱','گلزن پرکار ناپولی و پاری‌سن‌ژرمن','مهاجم پیشین منچستر یونایتد'],3,86);
+P('forlan','دیه‌گو فورلان','Diego Forlán','UY','F',10,['ایندپندینته','منچستر یونایتد','ویارئال','اتلتیکو مادرید','اینتر'],['توپ طلای جام جهانی ۲۰۱۰','کفش طلای اروپا ۲۰۰۵ و ۲۰۰۹','قهرمان لیگ اروپا ۲۰۱۰ با اتلتیکو'],4,86);
+P('james','خامس رودریگز','James Rodríguez','CO','M',10,['پورتو','موناکو','رئال مادرید','بایرن مونیخ','اورتون'],['آقای گل جام جهانی ۲۰۱۴ با ۶ گل','برنده جایزه برترین گل سال فیفا ۲۰۱۴','بازیکن رئال مادرید و بایرن (قرضی)'],3,85);
+P('falcao','رادامل فالکائو','Radamel Falcao','CO','F',9,['ریور پلیت','پورتو','اتلتیکو مادرید','موناکو'],['قهرمان لیگ اروپا ۲۰۱۱ و ۲۰۱۲','ملقب به «ببر»','گلزن پرکار پورتو و اتلتیکو'],4,86);
+P('hsanchez','هوگو سانچس','Hugo Sánchez','MX','F',null,['پوماس','اتلتیکو مادرید','رئال مادرید'],['۵ بار آقای گل لالیگا (پیچیچی)','بازیکن رئال مادرید و اتلتیکو','ستاره تاریخ فوتبال مکزیک'],5,85);
+P('marquez','رافائل مارکز','Rafael Márquez','MX','D',4,['اطلس','موناکو','بارسلونا'],['قهرمان لیگ قهرمانان ۲۰۰۶ و ۲۰۰۹','حضور در ۵ جام جهانی','مدافع بارسلونا و موناکو'],5,83);
+P('asanchez','الکسیس سانچس','Alexis Sánchez','CL','F',7,['اودینزه','بارسلونا','آرسنال','منچستر یونایتد','اینتر'],['قهرمان کوپا آمریکا ۲۰۱۵ و ۲۰۱۶','بهترین گلزن تاریخ تیم ملی کشورش','بازیکن آرسنال و بارسلونا'],3,85);
+P('vidal','آرتورو ویدال','Arturo Vidal','CL','M',8,['بایر لورکوزن','یوونتوس','بایرن مونیخ','بارسلونا','اینتر'],['۴ قهرمانی پیاپی سری آ با یوونتوس','قهرمان کوپا آمریکا ۲۰۱۵ و ۲۰۱۶','ملقب به «جنگجو»'],4,84);
+P('essien','مایکل اسین','Michael Essien','GH','M',5,['باستیا','لیون','چلسی','رئال مادرید','میلان'],['قهرمان لیگ قهرمانان ۲۰۱۲ با چلسی','دو قهرمانی لیگ برتر با چلسی','گران‌ترین بازیکن آفریقایی زمان خود'],4,85);
+P('abedi','آبدی پله','Abedi Pele','GH','M',10,['مارسی','لیون','تورینو'],['قهرمان لیگ قهرمانان ۱۹۹۳ با مارسی','۳ بار بهترین بازیکن سال آفریقا','ستاره غنا در دهه ۹۰'],5,84);
+P('okocha','جی‌جی اوکوچا','Jay-Jay Okocha','NG','M',10,['آینتراخت فرانکفورت','فنرباغچه','پاری‌سن‌ژرمن','بولتون'],['قهرمان جام ملت‌های آفریقا ۱۹۹۴','معروف به دریبل‌های تماشایی','ستاره بولتون در لیگ برتر'],5,84);
+P('kanu','نوانکو کانو','Nwankwo Kanu','NG','F',null,['آژاکس','اینتر','آرسنال'],['قهرمان لیگ قهرمانان ۱۹۹۵ با آژاکس','مدال طلای المپیک ۱۹۹۶','عضو تیم شکست‌ناپذیر آرسنال'],4,83);
+P('mane','سادیو مانه','Sadio Mané','SN','F',10,['متز','سالزبورگ','ساوتهمپتون','لیورپول','بایرن مونیخ','النصر'],['قهرمان جام ملت‌های آفریقا ۲۰۲۱','قهرمان لیگ قهرمانان ۲۰۱۹','قهرمان لیگ برتر ۲۰۲۰ با لیورپول'],2,88);
+P('koulibaly','کالیدو کولیبالی','Kalidou Koulibaly','SN','D',26,['خنک','ناپولی','چلسی','الهلال'],['قهرمان جام ملت‌های آفریقا ۲۰۲۱','کاپیتان تیم ملی کشورش','مدافع ناپولی و چلسی'],4,85);
+P('mahrez','ریاض محرز','Riyad Mahrez','DZ','F',26,['لسترسیتی','منچسترسیتی','الاهلی'],['قهرمان لیگ برتر ۲۰۱۶ با لسترسیتی','بازیکن سال لیگ برتر ۲۰۱۶','قهرمان جام ملت‌های آفریقا ۲۰۱۹'],3,86);
+P('hakimi','اشرف حکیمی','Achraf Hakimi','MA','D',2,['رئال مادرید','دورتموند','اینتر','پاری‌سن‌ژرمن'],['نیمه‌نهایی جام جهانی ۲۰۲۲ با تیم ملی کشورش','قهرمان لیگ قهرمانان ۲۰۲۵','بازیکن اینتر و دورتموند'],2,87);
+P('ziyech','حکیم زیاش','Hakim Ziyech','MA','M',7,['هیرنفین','توئنته','آژاکس','چلسی','گالاتاسرای'],['نیمه‌نهایی جام جهانی ۲۰۲۲','قهرمان لیگ قهرمانان ۲۰۲۱ با چلسی','ستاره آژاکس'],4,82);
+P('bounou','یاسین بونو','Yassine Bounou','MA','G',1,['ژیرونا','سویا','الهلال'],['دروازه‌بان نیمه‌نهایی جام جهانی ۲۰۲۲','قهرمان لیگ اروپا ۲۰۲۰ و ۲۰۲۳','ملقب به «بونو»'],4,85);
+P('nakata','هیده‌توشی ناکاتا','Hidetoshi Nakata','JP','M',7,['پروجا','رم','پارما'],['قهرمان سری آ ۲۰۰۱ با رم','ستاره تیم ملی کشورش در جام جهانی ۲۰۰۲','بازیکن پروجا و پارما'],5,80);
+P('kagawa','شینجی کاگاوا','Shinji Kagawa','JP','M',null,['سرزو اوزاکا','دورتموند','منچستر یونایتد'],['قهرمان بوندسلیگا ۲۰۱۱ و ۲۰۱۲','قهرمان لیگ برتر ۲۰۱۳ با یونایتد','ستاره آسیایی دورتموند'],5,80);
+P('cahill','تیم کیهیل','Tim Cahill','AU','F',4,['میلوال','اورتون','نیویورک ردبولز'],['بهترین گلزن تاریخ تیم ملی کشورش','نخستین گلزن تیم ملی کشورش در جام جهانی','ستاره اورتون'],5,80);
+P('davies','آلفونسو دیویس','Alphonso Davies','CA','D',19,['ونکوور وایت‌کپس','بایرن مونیخ'],['قهرمان لیگ قهرمانان ۲۰۲۰ با بایرن','نخستین گلزن تیم ملی کشورش در جام جهانی','سریع‌ترین بازیکن بوندسلیگا'],3,86);
+P('vidic','نمانیا ویدیچ','Nemanja Vidić','RS','D',15,['استاروا زوزدا','اسپارتاک مسکو','منچستر یونایتد','اینتر'],['۵ قهرمانی لیگ برتر با یونایتد','قهرمان لیگ قهرمانان ۲۰۰۸','کاپیتان منچستر یونایتد'],4,88);
+P('mitrovic','آلکساندر میتروویچ','Aleksandar Mitrović','RS','F',9,['آندرلخت','نیوکاسل','فولام','الهلال'],['بهترین گلزن تاریخ تیم ملی کشورش','گلزن فولام و نیوکاسل','مهاجم الهلال'],4,82);
+P('dzeko','ادین ژکو','Edin Džeko','BA','F',9,['ولفسبورگ','منچسترسیتی','رم','اینتر','فنرباغچه'],['قهرمان بوندسلیگا ۲۰۰۹ با ولفسبورگ','قهرمان لیگ برتر ۲۰۱۲ و ۲۰۱۴','بهترین گلزن تاریخ تیم ملی کشورش'],3,84);
+P('mandzukic','ماریو مانژوکیچ','Mario Mandžukić','HR','F',17,['دینامو زاگرب','ولفسبورگ','بایرن مونیخ','اتلتیکو مادرید','یوونتوس'],['نایب‌قهرمان جهان ۲۰۱۸','قهرمان لیگ قهرمانان ۲۰۱۳ با بایرن','بازیکن یوونتوس و اتلتیکو'],4,84);
+P('rakitic','ایوان راکیتیچ','Ivan Rakitić','HR','M',4,['بازل','شالکه','سویا','بارسلونا'],['قهرمان لیگ قهرمانان ۲۰۱۵ با بارسلونا','قهرمان لیگ اروپا ۲۰۱۴ با سویا','نایب‌قهرمان جام جهانی ۲۰۱۸'],3,86);
+P('sukur','هاکان شوکور','Hakan Şükür','TR','F',9,['گالاتاسرای','اینتر','پارما','بلکبرن'],['بهترین گلزن تاریخ تیم ملی کشورش','گلزن سریع‌ترین گل تاریخ جام جهانی (۱۱ ثانیه)','قهرمان جام یوفا ۲۰۰۰ با گالاتاسرای'],5,83);
+P('turan','اردا توران','Arda Turan','TR','M',10,['گالاتاسرای','اتلتیکو مادرید','بارسلونا'],['قهرمان لالیگا ۲۰۱۴ با اتلتیکو','بازیکن بارسلونا در سه‌گانه ۲۰۱۵','ستاره تیم ملی کشورش در یورو ۲۰۰۸'],4,84);
+P('calhanoglu','هاکان چالهان‌اوغلو','Hakan Çalhanoğlu','TR','M',10,['هامبورگ','بایر لورکوزن','میلان','اینتر'],['قهرمان سری آ ۲۰۲۴ با اینتر','کاپیتان تیم ملی کشورش','بازیکن میلان و اینتر'],3,86);
+P('vannistelrooy','رود فن‌نیستلروی','Ruud van Nistelrooy','NL','F',10,['پی‌اس‌وی','منچستر یونایتد','رئال مادرید'],['چند بار آقای گل لیگ قهرمانان','قهرمان لیگ برتر ۲۰۰۳ با یونایتد','برنده کفش طلای اروپا ۲۰۰۳'],3,88);
+P('seedorf','کلارنس سیدورف','Clarence Seedorf','NL','M',10,['آژاکس','رئال مادرید','اینتر','میلان'],['۴ بار قهرمان لیگ قهرمانان با ۳ باشگاه مختلف','قهرمان با آژاکس، رئال و میلان','بازیکن اینتر و میلان'],4,87);
+P('kluivert','پاتریک کلویورت','Patrick Kluivert','NL','F',9,['آژاکس','میلان','بارسلونا','نیوکاسل'],['گلزن فینال لیگ قهرمانان ۱۹۹۵','بازیکن آژاکس و بارسلونا','بعدها مربی و مدیر ورزشی'],4,84);
+P('davids','ادگار داویدز','Edgar Davids','NL','M',8,['آژاکس','میلان','یوونتوس','بارسلونا','اینتر','تاتنهام'],['ملقب به «پیت‌بول»','قهرمان لیگ قهرمانان ۱۹۹۵','با عینک محافظ مشهور بود'],4,85);
+P('robben','آریین روبن','Arjen Robben','NL','F',10,['خرونینگن','پی‌اس‌وی','چلسی','رئال مادرید','بایرن مونیخ'],['قهرمان لیگ قهرمانان ۲۰۱۳ با بایرن','۸ قهرمانی بوندسلیگا','نایب‌قهرمان جهان ۲۰۱۰'],3,88);
+P('ribery','فرانک ریبری','Franck Ribéry','FR','F',7,['مارسی','بایرن مونیخ','فیورنتینا'],['قهرمان لیگ قهرمانان ۲۰۱۳ با بایرن','نایب‌قهرمان جهان ۲۰۰۶','ستاره بایرن مونیخ'],3,87);
+P('vieira','پاتریک ویرا','Patrick Vieira','FR','M',4,['میلان','آرسنال','یوونتوس','اینتر','منچسترسیتی'],['قهرمان جام جهانی ۱۹۹۸','کاپیتان آرسنال شکست‌ناپذیر','۳ قهرمانی لیگ برتر با آرسنال'],3,87);
+P('thuram','لیلیان تورام','Lilian Thuram','FR','D',15,['موناکو','پارما','یوونتوس','بارسلونا'],['قهرمان جام جهانی ۱۹۹۸ و دو گل نیمه‌نهایی','از رکورددارهای بازی ملی کشورش','بازیکن پارما و یوونتوس'],4,87);
+P('desailly','مارسل دسایی','Marcel Desailly','FR','D',8,['مارسی','میلان','چلسی'],['قهرمان لیگ قهرمانان با دو باشگاه (مارسی و میلان)','قهرمان جام جهانی ۱۹۹۸ و یورو ۲۰۰۰','بازیکن چلسی و میلان'],5,86);
+P('deschamps','دیدیه دشان','Didier Deschamps','FR','M',7,['مارسی','یوونتوس','چلسی'],['کاپیتان قهرمان جام جهانی ۱۹۹۸','سرمربی قهرمان جهان ۲۰۱۸','قهرمان لیگ قهرمانان با مارسی و یوونتوس'],3,83);
+P('kante','انگولو کانته','N\'Golo Kanté','FR','M',13,['کان','لسترسیتی','چلسی','الاتحاد'],['قهرمان جام جهانی ۲۰۱۸','قهرمان لیگ برتر با لسترسیتی و چلسی','قهرمان لیگ قهرمانان ۲۰۲۱'],2,87);
+P('griezmann','آنتوان گریزمان','Antoine Griezmann','FR','F',7,['رئال سوسیداد','اتلتیکو مادرید','بارسلونا'],['قهرمان جام جهانی ۲۰۱۸','برترین بازیکن یورو ۲۰۱۶','قهرمان لیگ اروپا ۲۰۱۸ با اتلتیکو'],2,88);
+P('pogba','پل پوگبا','Paul Pogba','FR','M',6,['منچستر یونایتد','یوونتوس'],['قهرمان جام جهانی ۲۰۱۸','بهترین بازیکن جوان جام جهانی ۲۰۱۴','گران‌ترین نقل‌وانتقال جهان در ۲۰۱۶'],2,86);
+P('varane','رافائل ورانه','Raphaël Varane','FR','D',4,['لنس','رئال مادرید','منچستر یونایتد','کومو'],['قهرمان جام جهانی ۲۰۱۸','۵ قهرمانی لیگ قهرمانان با رئال','بازیکن رئال و منچستر یونایتد'],3,87);
+P('lloris','هوگو لوریس','Hugo Lloris','FR','G',1,['نیس','لیون','تاتنهام','لس‌آنجلس اف‌سی'],['کاپیتان قهرمان جام جهانی ۲۰۱۸','بیشترین بازی ملی در تاریخ تیم ملی کشورش','دروازه‌بان تاتنهام'],3,86);
+P('giroud','الیویه ژیرو','Olivier Giroud','FR','F',9,['مون‌پلیه','آرسنال','چلسی','میلان','لس‌آنجلس اف‌سی'],['از بهترین گلزنان تاریخ تیم ملی کشورش','قهرمان جام جهانی ۲۰۱۸','قهرمان لیگ قهرمانان ۲۰۲۱ با چلسی'],3,84);
+P('saka','بوکایو ساکا','Bukayo Saka','GB','F',7,['آرسنال'],['نایب‌قهرمان یورو ۲۰۲۰ و ۲۰۲۴','ستاره آکادمی آرسنال','بال راست آرسنال'],2,87);
+P('kane','هری کین','Harry Kane','GB','F',9,['تاتنهام','بایرن مونیخ'],['بهترین گلزن تاریخ تیم ملی انگلیس','بهترین گلزن تاریخ تاتنهام','کفش طلای جام جهانی ۲۰۱۸'],2,90);
+P('foden','فیل فودن','Phil Foden','GB','M',47,['منچسترسیتی'],['بازیکن سال لیگ برتر ۲۰۲۴','سه‌گانه ۲۰۲۳ با سیتی','محصول آکادمی باشگاهش'],3,88);
+P('lampard','فرانک لمپارد','Frank Lampard','GB','M',8,['وست‌هم','چلسی','منچسترسیتی'],['بهترین گلزن تاریخ چلسی','قهرمان لیگ قهرمانان ۲۰۱۲','۳ قهرمانی لیگ برتر با چلسی'],2,88);
+P('terry','جان تری','John Terry','GB','D',26,['چلسی','استون ویلا'],['کاپیتان چلسی','قهرمان لیگ قهرمانان ۲۰۱۲','۵ قهرمانی لیگ برتر'],3,86);
+P('scholes','پل اسکولز','Paul Scholes','GB','M',18,['منچستر یونایتد'],['۱۱ قهرمانی لیگ برتر','۲ قهرمانی لیگ قهرمانان','تنها باشگاه دوران حرفه‌ای‌اش'],4,87);
+P('giggs','رایان گیگز','Ryan Giggs','GB','M',11,['منچستر یونایتد'],['۱۳ قهرمانی لیگ برتر؛ رکورد','۲ قهرمانی لیگ قهرمانان','بیش از ۹۰۰ بازی برای تنها باشگاهش'],3,88);
+P('lineker','گری لینه‌کر','Gary Lineker','GB','F',10,['لستر','اورتون','بارسلونا','تاتنهام'],['آقای گل جام جهانی ۱۹۸۶','بازیکن بارسلونا و تاتنهام','بعدها مجری مشهور تلویزیون'],5,84);
+P('charlton','بابی چارلتون','Bobby Charlton','GB','M',9,['منچستر یونایتد'],['قهرمان جام جهانی ۱۹۶۶','توپ طلا ۱۹۶۶','نجات‌یافته از سانحه هوایی مونیخ'],5,91);
+P('best','جورج بست','George Best','NI','F',7,['منچستر یونایتد'],['توپ طلا ۱۹۶۸','قهرمان جام باشگاهان اروپا ۱۹۶۸','از نمادهای شماره ۷ منچستر یونایتد'],4,90);
+P('moore','بابی مور','Bobby Moore','GB','D',6,['وست‌هم','فولام'],['کاپیتان قهرمان جام جهانی ۱۹۶۶','نماد وست‌هم','مدافع بزرگ تاریخ انگلیس'],5,88);
+P('shearer','آلن شیرر','Alan Shearer','GB','F',9,['ساوتهمپتون','بلکبرن','نیوکاسل'],['بهترین گلزن تاریخ لیگ برتر (۲۶۰ گل)','قهرمان لیگ برتر ۱۹۹۵ با بلکبرن','ستاره نیوکاسل'],4,86);
+P('owen','مایکل اوون','Michael Owen','GB','F',10,['لیورپول','رئال مادرید','نیوکاسل','منچستر یونایتد','استوک'],['توپ طلا ۲۰۰۱','گلزن نوجوان جام جهانی ۱۹۹۸','قهرمان جام یوفا ۲۰۰۱ با لیورپول'],4,86);
+P('batistuta','گابریل باتیستوتا','Gabriel Batistuta','AR','F',9,['بوکاجونیورز','فیورنتینا','رم','اینتر'],['بهترین گلزن تاریخ فیورنتینا','قهرمان سری آ ۲۰۰۱ با رم','قهرمان کوپا آمریکا ۱۹۹۱ و ۱۹۹۳'],4,88);
+P('riquelme','خوان رومان ریکلمه','Juan Román Riquelme','AR','M',10,['بوکاجونیورز','بارسلونا','ویارئال'],['نماد بوکاجونیورز','۳ قهرمانی کوپا لیبرتادورس','نیمه‌نهایی لیگ قهرمانان ۲۰۰۶ با ویارئال'],5,87);
+P('zanetti','خاویر زانتی','Javier Zanetti','AR','D',4,['بانفیلد','اینتر'],['قهرمان سه‌گانه ۲۰۱۰ با اینتر','بیش از ۸۰۰ بازی برای اینتر','کاپیتان افسانه‌ای اینتر'],4,87);
+P('aguero','سرخیو آگوئرو','Sergio Agüero','AR','F',10,['ایندپندینته','اتلتیکو مادرید','منچسترسیتی'],['گل لحظه‌آخر قهرمانی ۲۰۱۲ لیگ برتر','بهترین گلزن تاریخ منچسترسیتی','مدال طلای المپیک ۲۰۰۸'],2,89);
+P('dimaria','آنخل دی‌ماریا','Ángel Di María','AR','M',11,['بنفیکا','رئال مادرید','منچستر یونایتد','پاری‌سن‌ژرمن','یوونتوس'],['گلزن فینال جام جهانی ۲۰۲۲','گلزن فینال کوپا آمریکا ۲۰۲۱','قهرمان لیگ قهرمانان ۲۰۱۴'],2,87);
+P('dybala','پائولو دیبالا','Paulo Dybala','AR','F',10,['پالرمو','یوونتوس','رم'],['قهرمان جام جهانی ۲۰۲۲','۵ قهرمانی سری آ با یوونتوس','ملقب به «جواهر»'],3,86);
+P('lautaro','لائوتارو مارتینس','Lautaro Martínez','AR','F',10,['راسینگ','اینتر'],['قهرمان جام جهانی ۲۰۲۲','قهرمان کوپا آمریکا ۲۰۲۱ و ۲۰۲۴','قهرمان سری آ ۲۰۲۴ با اینتر'],2,88);
+P('emartinez','امیلیانو مارتینس','Emiliano Martínez','AR','G',23,['آرسنال','استون ویلا'],['دستکش طلای جام جهانی ۲۰۲۲','قهرمان جام جهانی ۲۰۲۲','قهرمان کوپا آمریکا ۲۰۲۱ و ۲۰۲۴'],2,87);
+P('jalvarez','خولیان آلوارز','Julián Álvarez','AR','F',9,['ریور پلیت','منچسترسیتی','اتلتیکو مادرید'],['قهرمان جام جهانی ۲۰۲۲','سه‌گانه ۲۰۲۳ با منچسترسیتی','بازیکن اتلتیکو مادرید'],2,88);
+P('rodri','رودری','Rodri','ES','M',16,['ویارئال','اتلتیکو مادرید','منچسترسیتی'],['توپ طلا ۲۰۲۴','قهرمان یورو ۲۰۲۴ و بهترین بازیکن آن','سه‌گانه ۲۰۲۳ با سیتی'],2,91);
+P('pedri','پدری','Pedri','ES','M',8,['لاس‌پالماس','بارسلونا'],['برنده گلدن‌بوی ۲۰۲۱','قهرمان یورو ۲۰۲۴','ستاره هافبک بارسلونا'],2,88);
+P('carvajal','دنی کروخال','Dani Carvajal','ES','D',2,['رئال مادرید','بایر لورکوزن'],['۶ قهرمانی لیگ قهرمانان با رئال','قهرمان یورو ۲۰۲۴','مدافع راست رئال مادرید'],3,88);
+P('alba','خوردی آلبا','Jordi Alba','ES','D',18,['والنسیا','بارسلونا','اینتر میامی'],['گلزن فینال یورو ۲۰۱۲','قهرمان لیگ قهرمانان ۲۰۱۵','هم‌تیمی مسی در بارسلونا و میامی'],4,85);
+P('pique','جرارد پیکه','Gerard Piqué','ES','D',3,['منچستر یونایتد','بارسلونا'],['۴ قهرمانی لیگ قهرمانان','قهرمان جام جهانی ۲۰۱۰ و یورو ۲۰۱۲','مدافع بارسلونا و منچستر یونایتد'],3,87);
+P('villa','داوید ویا','David Villa','ES','F',7,['اسپورتینگ خیخون','والنسیا','بارسلونا','اتلتیکو مادرید','نیویورک سیتی'],['بهترین گلزن تاریخ تیم ملی کشورش','قهرمان جام جهانی ۲۰۱۰','قهرمان لیگ قهرمانان ۲۰۱۱'],3,88);
+P('torres','فرناندو تورس','Fernando Torres','ES','F',9,['اتلتیکو مادرید','لیورپول','چلسی','میلان'],['گلزن فینال یورو ۲۰۰۸','قهرمان جام جهانی ۲۰۱۰','قهرمان لیگ قهرمانان ۲۰۱۲ با چلسی'],3,88);
+P('raul','رائول','Raúl','ES','F',7,['رئال مادرید','شالکه'],['۳ قهرمانی لیگ قهرمانان','نماد شماره ۷ رئال مادرید','از بهترین گلزنان تاریخ رئال'],3,88);
+P('figo','لوئیس فیگو','Luís Figo','PT','M',7,['اسپورتینگ لیسبون','بارسلونا','رئال مادرید','اینتر'],['توپ طلا ۲۰۰۰','انتقال جنجالی از بارسلونا به رئال','بازیکن سال فیفا ۲۰۰۱'],3,91);
+P('ruicosta','روی کاستا','Rui Costa','PT','M',10,['بنفیکا','فیورنتینا','میلان'],['قهرمان لیگ قهرمانان ۲۰۰۳ با میلان','شماره ۱۰ زیبای فیورنتینا','بازیکن بنفیکا'],5,86);
+P('bruno','برونو فرناندز','Bruno Fernandes','PT','M',8,['اودینزه','اسپورتینگ لیسبون','منچستر یونایتد'],['کاپیتان منچستر یونایتد','قهرمان لیگ ملت‌های اروپا ۲۰۱۹','ستاره تیم ملی کشورش'],2,88);
+P('bsilva','برناردو سیلوا','Bernardo Silva','PT','M',10,['بنفیکا','موناکو','منچسترسیتی'],['سه‌گانه ۲۰۲۳ با سیتی','قهرمان لیگ ملت‌های اروپا ۲۰۱۹','بازیکن موناکو و منچسترسیتی'],3,88);
+P('dias','روبن دیاش','Rúben Dias','PT','D',3,['بنفیکا','منچسترسیتی'],['برنده فوتبالیست سال لیگ برتر ۲۰۲۱','سه‌گانه ۲۰۲۳','مدافع تیم ملی کشورش'],3,88);
+P('pepe','پپه','Pepe','PT','D',3,['پورتو','رئال مادرید','بشیکتاش'],['قهرمان یورو ۲۰۱۶','قهرمان لیگ قهرمانان با رئال','تا ۴۱ سالگی بازی کرد'],4,84);
+P('rossi','پائولو روسی','Paolo Rossi','IT','F',20,['یوونتوس','میلان','ویچنزا'],['آقای گل و بهترین بازیکن جام جهانی ۱۹۸۲','قهرمان جام جهانی ۱۹۸۲','توپ طلا ۱۹۸۲'],5,87);
+P('totti','فرانچسکو توتی','Francesco Totti','IT','F',10,['رم'],['قهرمان جام جهانی ۲۰۰۶','نماد رم؛ تنها باشگاهش','کفش طلای اروپا ۲۰۰۷'],3,90);
+P('delpiero','الساندرو دل‌پیرو','Alessandro Del Piero','IT','F',10,['پادووا','یوونتوس','سیدنی'],['بهترین گلزن تاریخ یوونتوس','قهرمان جام جهانی ۲۰۰۶','قهرمان لیگ قهرمانان ۱۹۹۶'],3,89);
+P('gattuso','جنارو گتوزو','Gennaro Gattuso','IT','M',8,['پروجا','رنجرز','میلان'],['قهرمان جام جهانی ۲۰۰۶','۲ قهرمانی لیگ قهرمانان با میلان','مشهور به جنگندگی و روحیه‌اش'],4,84);
+P('baresi','فرانکو بارزی','Franco Baresi','IT','D',6,['میلان'],['۳ قهرمانی لیگ قهرمانان','نایب‌قهرمان جام جهانی ۱۹۹۴','تنها باشگاه دوران حرفه‌ای‌اش'],4,90);
+P('chiellini','جورجو کیه‌لینی','Giorgio Chiellini','IT','D',3,['لیورنو','یوونتوس','لس‌آنجلس اف‌سی'],['قهرمان یورو ۲۰۲۰','۹ قهرمانی سری آ با یوونتوس','مدافع لس‌آنجلس اف‌سی'],3,87);
+P('bonucci','لئوناردو بونوچی','Leonardo Bonucci','IT','D',19,['اینتر','باری','یوونتوس','میلان'],['قهرمان یورو ۲۰۲۰ و گلزن فینال','دو بار نایب‌قهرمان لیگ قهرمانان با یوونتوس','مدافع یوونتوس و میلان'],4,85);
+P('nesta','الساندرو نستا','Alessandro Nesta','IT','D',13,['لاتزیو','میلان'],['۲ قهرمانی لیگ قهرمانان با میلان','قهرمان جام جهانی ۲۰۰۶','نماد دفاع ایتالیا'],4,90);
+P('materazzi','مارکو ماتراتزی','Marco Materazzi','IT','D',23,['پروجا','اینتر'],['قهرمان جام جهانی ۲۰۰۶','گلزن فینال جام جهانی ۲۰۰۶','قهرمان سه‌گانه ۲۰۱۰ با اینتر'],5,82);
+P('hummels','ماتس هوملس','Mats Hummels','DE','D',5,['بایرن مونیخ','دورتموند','رم'],['قهرمان جام جهانی ۲۰۱۴','قهرمان بوندسلیگا ۲۰۱۱ و ۲۰۱۲ با دورتموند','نایب‌قهرمان لیگ قهرمانان ۲۰۱۳ و ۲۰۲۴'],3,87);
+P('kroos','توني کروس','Toni Kroos','DE','M',8,['بایرن مونیخ','رئال مادرید'],['۶ قهرمانی لیگ قهرمانان با دو باشگاه','قهرمان جام جهانی ۲۰۱۴','بازنشسته پس از یورو ۲۰۲۴'],2,90);
+P('ozil','مسعود اوزیل','Mesut Özil','DE','M',10,['وردربرمن','رئال مادرید','آرسنال','فنرباغچه'],['قهرمان جام جهانی ۲۰۱۴','پاسور ستاره رئال و آرسنال','قهرمان لالیگا ۲۰۱۲ با رئال'],3,86);
+P('schweini','باستین شواین‌اشتایگر','Bastian Schweinsteiger','DE','M',7,['بایرن مونیخ','منچستر یونایتد','شیکاگو فایر'],['قهرمان جام جهانی ۲۰۱۴','قهرمان لیگ قهرمانان ۲۰۱۳ با بایرن','کاپیتان تیم ملی کشورش بعد از لام'],3,87);
+P('lahm','فیلیپ لام','Philipp Lahm','DE','D',21,['اشتوتگارت','بایرن مونیخ'],['کاپیتان قهرمان جام جهانی ۲۰۱۴','کاپیتان بایرن در سه‌گانه ۲۰۱۳','۸ قهرمانی بوندسلیگا'],3,88);
+P('klinsmann','یورگن کلینسمان','Jürgen Klinsmann','DE','F',18,['اشتوتگارت','اینتر','تاتنهام','موناکو','بایرن مونیخ'],['قهرمان جام جهانی ۱۹۹۰','قهرمان یورو ۱۹۹۶','بعدها سرمربی تیم ملی آلمان و آمریکا'],4,87);
+P('gmuller','گرد مولر','Gerd Müller','DE','F',13,['بایرن مونیخ','فورت لادرلیدل'],['قهرمان جام جهانی ۱۹۷۴','کفش طلای جام جهانی ۱۹۷۰','توپ طلا ۱۹۷۰'],5,91);
+P('kahn','الیور کان','Oliver Kahn','DE','G',1,['کارلسروهه','بایرن مونیخ'],['برنده توپ طلای جام جهانی ۲۰۰۲','قهرمان لیگ قهرمانان ۲۰۰۱','ملقب به «تایتان»'],3,90);
+P('ballack','میشائیل بالاک','Michael Ballack','DE','M',13,['لورکوزن','بایرن مونیخ','چلسی'],['نایب‌قهرمان جام جهانی ۲۰۰۲','کاپیتان تیم ملی کشورش','بازیکن بایرن و چلسی'],4,85);
+P('rummenigge','کارل‌هاینتس رومنیگه','Karl-Heinz Rummenigge','DE','F',11,['بایرن مونیخ','اینتر'],['۲ توپ طلا (۱۹۸۰ و ۱۹۸۱)','نایب‌قهرمان جهان ۱۹۸۲ و ۱۹۸۶','بازیکن بایرن و اینتر'],5,88);
+P('vanpersie','رابین فن‌پرسی','Robin van Persie','NL','F',10,['فاینورد','آرسنال','منچستر یونایتد','فنرباغچه'],['قهرمان لیگ برتر ۲۰۱۳ با یونایتد','کفش طلای لیگ برتر ۲۰۱۲ و ۲۰۱۳','گل پرشی «پرنده» در جام جهانی ۲۰۱۴'],3,87);
+P('sneijder','وسلی اشنایدر','Wesley Sneijder','NL','M',10,['آژاکس','رئال مادرید','اینتر','گالاتاسرای'],['سه‌گانه ۲۰۱۰ با اینتر','نایب‌قهرمان جام جهانی ۲۰۱۰','بازیکن آژاکس و رئال'],3,87);
+P('fdejong','فرنکی دیونگ','Frenkie de Jong','NL','M',21,['آژاکس','بارسلونا'],['نیمه‌نهایی لیگ قهرمانان ۲۰۱۹ با آژاکس','پاسور بارسلونا','قهرمان لالیگا ۲۰۲۵'],3,86);
+P('casemiro','کاسمیرو','Casemiro','BR','M',5,['سائوپائولو','رئال مادرید','منچستر یونایتد'],['۵ قهرمانی لیگ قهرمانان با رئال','بازیکن منچستر یونایتد','هافبک دفاعی تیم ملی کشورش'],3,86);
+P('tsilva','تیاگو سیلوا','Thiago Silva','BR','D',3,['فلومیننسه','میلان','پاری‌سن‌ژرمن','چلسی'],['قهرمان لیگ قهرمانان ۲۰۲۱','کاپیتان تیم ملی کشورش','مدافع میلان و پاری‌سن‌ژرمن'],3,86);
+P('alves','دنی آلوس','Dani Alves','BR','D',2,['سویا','بارسلونا','یوونتوس','پاری‌سن‌ژرمن'],['۳ قهرمانی لیگ قهرمانان با بارسلونا','از پرافتخارترین بازیکنان تاریخ','قهرمان کوپا آمریکا ۲۰۱۹'],3,87);
+P('marcelo','مارسلو','Marcelo','BR','D',12,['فلومیننسه','رئال مادرید'],['۵ قهرمانی لیگ قهرمانان با رئال','کاپیتان رئال مادرید','محصول آکادمی فلومیننسه'],3,88);
+P('kaka','کاکا','Kaká','BR','M',10,['سائوپائولو','میلان','رئال مادرید','اورلاندو سیتی'],['توپ طلا ۲۰۰۷','قهرمان جام جهانی ۲۰۰۲','قهرمان لیگ قهرمانان ۲۰۰۷ با میلان'],2,90);
+P('rivaldo','ریوالدو','Rivaldo','BR','M',10,['پالمیراس','دپورتیوو','بارسلونا','میلان'],['توپ طلا ۱۹۹۹','قهرمان جام جهانی ۲۰۰۲','گل قیچی برگردان به والنسیا (۲۰۰۱)'],3,89);
+P('romario','روماریو','Romário','BR','F',11,['پی‌اس‌وی','بارسلونا','فلامنگو','واسکو'],['قهرمان جام جهانی ۱۹۹۴ و بهترین بازیکن آن','بازیکن سال فیفا ۱۹۹۴','بازیکن پی‌اس‌وی و بارسلونا'],4,90);
+P('zico','زیکو','Zico','BR','M',10,['فلامنگو','اودینزه'],['ستاره نسل طلایی برزیل در جام جهانی ۱۹۸۲','نماد فلامنگو','بازیکن اودینزه ایتالیا'],5,90);
+P('socrates','سقراط','Sócrates','BR','M',8,['کورینتیانس','فیورنتینا','فلامنگو'],['کاپیتان برزیل در جام جهانی ۱۹۸۲','پزشک و فعال اجتماعی','ملقب به «دکتر»'],5,86);
+P('garrincha','گارینشا','Garrincha','BR','F',7,['بوتافوگو','کورینتیانس'],['قهرمان جام جهانی ۱۹۵۸ و ۱۹۶۲','بهترین بازیکن جام جهانی ۱۹۶۲','ملقب به «شادی مردم»'],5,91);
+P('puskas','فرنس پوشکاش','Ferenc Puskás','HU','F',10,['هونود','رئال مادرید'],['جایزه برترین گل سال فیفا به نام او است','۳ قهرمانی لیگ قهرمانان با رئال','نایب‌قهرمان جام جهانی ۱۹۵۴'],5,93);
+P('distefano','آلفردو دی‌استفانو','Alfredo Di Stéfano','AR','F',9,['ریور پلیت','میلیوناریوس','رئال مادرید'],['۵ قهرمانی پیاپی جام باشگاهان اروپا','نماد دوران طلایی رئال مادرید','توپ طلا ۱۹۵۷ و ۱۹۵۹'],5,92);
+P('laudrup','میکائل لادروپ','Michael Laudrup','DK','M',null,['یوونتوس','بارسلونا','رئال مادرید','آژاکس'],['۵ قهرمانی پیاپی لالیگا با دو رقیب','ستاره تیم ملی کشورش','بازیکن یوونتوس و آژاکس'],5,88);
+P('eriksen','کریستین اریکسن','Christian Eriksen','DK','M',10,['آژاکس','تاتنهام','اینتر','منچستر یونایتد'],['ایست قلبی در یورو ۲۰۲۰ و بازگشت','نیمه‌نهایی یورو ۲۰۲۰','پاسور تاتنهام'],3,84);
+P('larsson','هنریک لارسون','Henrik Larsson','SE','F',null,['فاینورد','سلتیک','بارسلونا','منچستر یونایتد'],['کفش طلای اروپا ۲۰۰۱','نماد سلتیک','قهرمان لیگ قهرمانان ۲۰۰۶'],4,86);
+P('donnarumma','جانلوئیجی دوناروما','Gianluigi Donnarumma','IT','G',1,['میلان','پاری‌سن‌ژرمن','منچسترسیتی'],['قهرمان یورو ۲۰۲۰ و بهترین بازیکن آن','قهرمان لیگ قهرمانان ۲۰۲۵','دروازه‌بان منچسترسیتی'],2,88);
+P('xhaka','گرانیت ژاکا','Granit Xhaka','CH','M',10,['بازل','گلادباخ','آرسنال','بایر لورکوزن'],['کاپیتان تیم ملی کشورش','قهرمان بوندسلیگا ۲۰۲۴ با لورکوزن','بازیکن آرسنال'],4,84);
+P('sommer','یان زومر','Yann Sommer','CH','G',1,['بازل','گلادباخ','بایرن مونیخ','اینتر'],['قهرمان سری آ ۲۰۲۴ با اینتر','مهار پنالتی امباپه در یورو ۲۰۲۰','دروازه‌بان تیم ملی کشورش'],5,84);
+P('alaba','دیوید آلابا','David Alaba','AT','D',27,['بایرن مونیخ','رئال مادرید'],['قهرمان لیگ قهرمانان با بایرن و رئال','چند بار بهترین بازیکن سال کشورش','بازیکن بایرن مونیخ و رئال مادرید'],3,87);
+P('chicharito','خاویر هرناندز','Javier Hernández','MX','F',14,['گوادالاخارا','منچستر یونایتد','بایر لورکوزن','وست‌هم','سویا'],['بهترین گلزن تاریخ تیم ملی کشورش','قهرمان لیگ برتر ۲۰۱۱ و ۲۰۱۳','ملقب به «چیچاریتو»'],3,82);
+P('ochoa','گیرمو اوچوا','Guillermo Ochoa','MX','G',13,['آمریکا','مالاگا','استاندارد لیژ'],['نجات‌های درخشان مقابل برزیل در جام جهانی ۲۰۱۴','دروازه‌بان باتجربه تیم ملی کشورش','بازیکن مالاگا و استاندارد لیژ'],5,80);
+P('navas','کیلور ناواس','Keylor Navas','CR','G',1,['لوانته','رئال مادرید','پاری‌سن‌ژرمن'],['۳ قهرمانی پیاپی لیگ قهرمانان با رئال','ستاره تیم ملی کشورش در جام جهانی ۲۰۱۴','دروازه‌بان پاری‌سن‌ژرمن'],4,85);
+P('yaya','یایا توره','Yaya Touré','CI','M',42,['موناکو','بارسلونا','منچسترسیتی'],['۴ بار بهترین بازیکن سال آفریقا','قهرمان لیگ قهرمانان ۲۰۰۹ با بارسلونا','ستاره منچسترسیتی'],3,87);
+P('busquets','سرخیو بوسکتس','Sergio Busquets','ES','M',5,['بارسلونا','اینتر میامی'],['قهرمان جام جهانی ۲۰۱۰ و یورو ۲۰۱۲','۳ قهرمانی لیگ قهرمانان','یکی از بهترین هافبک‌های دفاعی تاریخ'],3,88);
+P('fabregas','سسک فابرگاس','Cesc Fàbregas','ES','M',4,['آرسنال','بارسلونا','چلسی','موناکو'],['قهرمان جام جهانی ۲۰۱۰ و یورو ۲۰۰۸ و ۲۰۱۲','کاپیتان جوان آرسنال','قهرمان لیگ برتر ۲۰۱۵ با چلسی'],4,87);
+P('morata','آلوارو موراتا','Álvaro Morata','ES','F',7,['رئال مادرید','یوونتوس','چلسی','اتلتیکو مادرید','میلان'],['کاپیتان تیم ملی کشورش در یورو ۲۰۲۴','قهرمان یورو ۲۰۲۴','بازیکن یوونتوس و رئال'],4,82);
+P('aboutrika','محمد ابوتریکه','Mohamed Aboutrika','EG','M',22,['ترسانه','الاهلی'],['۳ قهرمانی جام ملت‌های آفریقا','نماد الاهلی مصر','ستاره بزرگ آفریقا'],5,82);
+P('milla','راجر میلا','Roger Milla','CM','F',9,['تونر','سن‌اتین','مون‌پلیه'],['پیرترین گلزن تاریخ جام جهانی (۴۲ ساله)','رقص معروف کنار پرچم کرنر','ستاره جام جهانی ۱۹۹۰'],5,82);
+P('redondo','فرناندو ردوندو','Fernando Redondo','AR','M',6,['آرخنتینوس','تنریفه','رئال مادرید','میلان'],['قهرمان لیگ قهرمانان ۱۹۹۸','حرکت معروف «پاشنه» مقابل منچستر یونایتد','ستاره خط میانی دهه ۹۰'],5,86);
+P('firmino','روبرتو فیرمینو','Roberto Firmino','BR','F',9,['هوفنهایم','لیورپول'],['قهرمان لیگ قهرمانان ۲۰۱۹ با لیورپول','قهرمان لیگ برتر ۲۰۲۰','مهاجم فالس‌نان لیورپول'],4,84);
+P('alisson','آلیسون بکر','Alisson Becker','BR','G',1,['اینترناسیونال','رم','لیورپول'],['قهرمان لیگ قهرمانان ۲۰۱۹','دستکش طلای کوپا آمریکا ۲۰۱۹','دروازه‌بان لیورپول'],2,89);
+P('ederson','ادرسون','Ederson','BR','G',31,['بنفیکا','منچسترسیتی'],['سه‌گانه ۲۰۲۳ با سیتی','دروازه‌بان با پاس‌های بلند دقیق','بازیکن بنفیکا و منچسترسیتی'],4,86);
+P('rodrygo','رودریگو','Rodrygo','BR','F',11,['سانتوس','رئال مادرید'],['قهرمان لیگ قهرمانان ۲۰۲۲ و ۲۰۲۴','ستاره جوان سانتوس','بازیکن رئال مادرید'],3,86);
+
+/* ============ وضعیت و ذخیره‌سازی ============ */
+const KEY='footballLegends.v1';let memSave=null,storageOK=true;
+function defaults(){return{name:'بازیکن جدید',avatar:'⚽',photo:null,frame:'',theme:'night',coins:300,gems:10,xp:0,cl:{},
+stats:{correct:0,answered:0,games:0,hard:0,daily:0},ident:{},cards:{},pimg:{},miss:{},ms:{},seen:false,codes:{},team:{f:'433',s:{}},inv:{hint:2,remove:2,reveal:2},
+own:{av:['⚽','🧤','🥅','🏟️'],fr:[''],th:['night']},daily:{last:'',streak:0,played:''},m:{date:'',prog:{},claimed:{}},cp:{},badges:{},hist:[],rooms:{},
+set:{sfx:.7,music:.35,musicOn:true}}}
+function merge(d,s){for(const k in s){if(s[k]&&typeof s[k]==='object'&&!Array.isArray(s[k])&&d[k]&&typeof d[k]==='object'&&!Array.isArray(d[k]))merge(d[k],s[k]);else d[k]=s[k]}return d}
+function loadSave(){try{const r=localStorage.getItem(KEY);if(r)return JSON.parse(r)}catch(e){storageOK=false}return memSave?JSON.parse(memSave):null}
+function save(){const j=JSON.stringify(S);memSave=j;try{localStorage.setItem(KEY,j)}catch(e){storageOK=false}}
+let S=merge(defaults(),loadSave()||{});
+const UI={view:'home',tab:'home',cf:-1,res:null};
+let Q=null;
+
+/* ============ منطق عمومی ============ */
+const RN=['معمولی','کمیاب','حماسی','افسانه‌ای','اسطوره‌ای'];
+const rar=p=>p.ovr>=95?4:p.ovr>=92?3:p.ovr>=89?2:p.ovr>=85?1:0;
+const TIER=['آماتور','حرفه‌ای','ستاره','اسطوره','افسانه'];
+const MODES=['img','hide','info','stats','path','fact'];
+const MI={img:'🖼️',hide:'🌫️',info:'📋',stats:'📊',path:'🧭',fact:'🏅'};
+const MN={img:'حدس از روی تصویر',hide:'تصویر مخفی',info:'حدس از روی مشخصات',stats:'چالش آمار',path:'مسیر باشگاهی',fact:'افتخارات'};
+const LEAGUES=[['برنز',0,'#d9955a'],['نقره',500,'#c9d3e2'],['طلا',1500,'#f2c14e'],['پلاتین',3500,'#7fe3d6'],['الماس',7000,'#6fd1ff'],['افسانه',12000,'#ff7ad9']];
+const lvlOf=xp=>Math.floor(Math.sqrt(xp/50))+1;
+const leagueOf=xp=>{let i=0;LEAGUES.forEach((l,k)=>{if(xp>=l[1])i=k});return i};
+const identCount=()=>Object.keys(S.ident).length;
+const levelsDone=()=>Object.values(S.cl).filter(v=>v>0).length;
+const rareOwned=()=>Object.keys(S.cards).filter(id=>rar(PM[id])>=1).length;
+function buildCampaign(){const r=rngFrom(1357911),N=PL.length,sorted=PL.slice().sort((a,b)=>a.diff-b.diff||b.ovr-a.ovr),levels=[],tierOf=[],tiers=[];
+for(let t=0;t<5;t++){const grp=sorted.filter((_,i)=>Math.floor(i*5/N)===t);let pairs=[];grp.forEach(p=>MODES.forEach(m=>pairs.push([p.id,m])));pairs=shuffle(pairs,r);const from=levels.length+1;
+while(pairs.length>=5){const idx=[],used={};for(let i=0;i<pairs.length&&idx.length<5;i++){if(!used[pairs[i][0]]){used[pairs[i][0]]=1;idx.push(i)}}if(idx.length<5)break;levels.push(idx.map(i=>pairs[i]));idx.slice().reverse().forEach(i=>pairs.splice(i,1));tierOf.push(t)}
+tiers.push({name:TIER[t],from,to:levels.length})}return{levels,tierOf,tiers}}
+const CAMP=buildCampaign(),LV=CAMP.levels.length;
+const nextLevel=()=>{for(let n=1;n<=LV;n++)if(!(S.cl[n]>0))return n;return LV};
+const titleOf=l=>l<5?'تازه‌کار':l<10?'مشتاق':l<20?'کارشناس':l<35?'استاد':'افسانه';
+function hist(t){S.hist.unshift({d:today(),t});S.hist.length=Math.min(S.hist.length,25)}
+function ensureDaily(){const t=today();if(S.m.date!==t){S.m={date:t,prog:{login:1},claimed:{}};save()}}
+function track(k,n=1){ensureDaily();S.m.prog[k]=(S.m.prog[k]||0)+n}
+function toast(t){const e=document.createElement('div');e.textContent=t;$('#toast').appendChild(e);setTimeout(()=>e.remove(),2800)}
+function earn(r,silent){if(r.coins)S.coins+=r.coins;if(r.gems)S.gems+=r.gems;if(r.xp)addXp(r.xp);save();if(!silent)updateTop()}
+function addXp(n){const a=lvlOf(S.xp);S.xp+=n;const b=lvlOf(S.xp);if(b>a){for(let l=a+1;l<=b;l++){S.coins+=25;if(l%5===0)S.gems+=1;hist('ارتقا به سطح '+fa(l))}toast('🎉 سطح '+fa(b)+' — ۲۵ سکه هدیه');sfx.win();burst()}checkBadges()}
+const BADGES=[
+{id:'rookie',n:'استعداد تازه‌کار',d:'۱۰ پاسخ صحیح',ok:()=>S.stats.correct>=10,e:'🌱'},
+{id:'hunter',n:'شکارچی ستاره‌ها',d:'شناسایی ۲۰ بازیکن',ok:()=>identCount()>=20,e:'🎯'},
+{id:'master',n:'استاد فوتبال',d:'تکمیل ۲۵ مرحله',ok:()=>levelsDone()>=25,e:'🎓'},
+{id:'legend',n:'متخصص اسطوره‌ها',d:'۱۵ پاسخ صحیح به سؤال‌های سخت',ok:()=>S.stats.hard>=15,e:'🗿'},
+{id:'king',n:'پادشاه فوتبال',d:'لیگ طلا و تکمیل ۵۰ مرحله',ok:()=>S.xp>=1500&&levelsDone()>=50,e:'👑'}];
+function checkBadges(){BADGES.forEach(b=>{if(!S.badges[b.id]&&b.ok()){S.badges[b.id]=today();hist('نشان «'+b.n+'»');toast('🏅 نشان جدید: '+b.n)}})}
+
+/* ============ صدا ============ */
+let AC=null,mt=null,mi=0;
+function ac(){if(!AC){try{AC=new(window.AudioContext||window.webkitAudioContext)()}catch(e){}}if(AC&&AC.state==='suspended')AC.resume();return AC}
+function tone(f,d,type,vol,when,to){const c=ac();if(!c||vol<=0)return;const t=c.currentTime+(when||0),o=c.createOscillator(),g=c.createGain();o.type=type||'sine';o.frequency.setValueAtTime(f,t);if(to)o.frequency.exponentialRampToValueAtTime(to,t+d);g.gain.setValueAtTime(vol,t);g.gain.exponentialRampToValueAtTime(.0008,t+d);o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+d+.02)}
+const sv=()=>S.set.sfx;
+const sfx={tap:()=>tone(520,.07,'triangle',.16*sv()),ok:()=>{tone(660,.12,'sine',.28*sv());tone(990,.2,'sine',.28*sv(),.1)},bad:()=>{tone(230,.25,'sawtooth',.18*sv(),0,120)},tick:()=>tone(900,.04,'square',.07*sv()),
+win:()=>[523,659,784,1047].forEach((f,i)=>tone(f,.22,'triangle',.28*sv(),i*.11)),card:()=>{tone(300,.4,'sine',.25*sv(),0,900);tone(1200,.3,'triangle',.15*sv(),.25)},coin:()=>{tone(1200,.08,'square',.1*sv());tone(1600,.12,'square',.1*sv(),.07)}};
+const MUS=[220,261.6,329.6,261.6,196,246.9,293.7,246.9];
+function musicStart(){if(mt||!S.set.musicOn)return;mt=setInterval(()=>{const v=S.set.music;if(v>0&&ac())tone(MUS[mi%8]*(mi%16<8?1:1.5),.55,'triangle',.22*v);mi++},480)}
+function musicStop(){clearInterval(mt);mt=null}
+
+/* ============ افکت ذرات ============ */
+let PS=[],raf=0;const RM=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+function burst(x,y,n){if(RM)return;const c=$('#fx');c.width=innerWidth;c.height=innerHeight;x=x==null?innerWidth/2:x;y=y==null?innerHeight/3:y;const col=['#f2c14e','#2ee6ff','#3be08a','#ff7ad9','#ffffff'];for(let i=0;i<(n||60);i++){const a=Math.random()*6.28,s=3+Math.random()*7;PS.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-4,r:2+Math.random()*3,c:col[i%5],l:60+Math.random()*30})}if(!raf)raf=requestAnimationFrame(fxLoop)}
+function fxLoop(){const c=$('#fx'),g=c.getContext('2d');g.clearRect(0,0,c.width,c.height);PS.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.28;p.vx*=.99;p.l--;g.globalAlpha=clamp(p.l/30,0,1);g.fillStyle=p.c;g.fillRect(p.x,p.y,p.r*1.6,p.r)});PS=PS.filter(p=>p.l>0);if(PS.length)raf=requestAnimationFrame(fxLoop);else{raf=0;g.clearRect(0,0,c.width,c.height)}}
+
+/* ============ تصویر و کارت بازیکن (طراحی‌شده توسط بازی) ============ */
+let SV=0;
+const PHOTO_URLS={/* مثال: messi:'https://.../messi.jpg' — آدرس عکس مجاز را اینجا بگذار */};
+function portrait(p,num=true){const n=NAT[p.nat],c1=n[2],c2=n[3],h=hashStr(p.id),k=h%3,id='g'+(SV++);
+const ph=PHOTO_URLS[p.id]||(S.pimg&&S.pimg[p.id]);
+if(ph)return `<svg viewBox="0 0 200 240" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#050a1c" stop-opacity=".92"/></linearGradient></defs><rect width="200" height="240" fill="#0b1330"/><image href="${ph}" width="200" height="240" preserveAspectRatio="xMidYMin slice"/><rect width="200" height="240" fill="url(#${id})"/>${num&&p.num?`<text x="186" y="228" text-anchor="end" font-family="Impact,Arial Black,sans-serif" font-size="40" fill="${c2}" stroke="rgba(0,0,0,.6)" stroke-width="1.5">${p.num}</text>`:''}</svg>`;
+const hair=k===0?'<path d="M70 78 Q72 44 100 44 Q128 44 130 78 Q124 60 100 58 Q76 60 70 78Z" fill="#101728"/>':k===2?'<path d="M66 86 Q62 38 100 38 Q138 38 134 86 L140 126 L126 112 Q128 66 100 62 Q72 66 74 112 L60 126Z" fill="#101728"/>':'';
+return `<svg viewBox="0 0 200 240" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a4488"/><stop offset="1" stop-color="#0b1330"/></linearGradient><radialGradient id="${id}r" cx=".5" cy=".38" r=".6"><stop offset="0" stop-color="${c1}" stop-opacity=".5"/><stop offset="1" stop-color="${c1}" stop-opacity="0"/></radialGradient></defs>
+<rect width="200" height="240" fill="url(#${id})"/><rect width="200" height="240" fill="url(#${id}r)"/><path d="M100 -20 L-40 240 L20 240Z M100 -20 L240 240 L180 240Z" fill="#fff" opacity=".06"/><circle cx="100" cy="92" r="64" fill="none" stroke="${c2}" stroke-opacity=".35" stroke-width="2"/>
+<path d="M-10 240 Q-4 168 62 156 L100 176 L138 156 Q204 168 210 240Z" fill="${c1}"/>
+<path d="M62 156 Q30 166 22 200 L40 204 Q46 178 70 168Z M138 156 Q170 166 178 200 L160 204 Q154 178 130 168Z" fill="${c2}" opacity=".9"/>
+<path d="M80 156 L100 184 L120 156 Q100 168 80 156Z" fill="${c2}"/><path d="M40 240 L52 190 M160 240 L148 190 M70 240 L74 196 M130 240 L126 196" stroke="${c2}" stroke-opacity=".25" stroke-width="6"/>
+<rect x="87" y="118" width="26" height="44" rx="10" fill="#1d2744"/>
+<ellipse cx="100" cy="92" rx="30" ry="36" fill="#2a3556"/><ellipse cx="90" cy="80" rx="10" ry="18" fill="#37446a" opacity=".5"/>${hair}
+${num&&p.num?`<text x="100" y="228" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="42" font-weight="900" fill="${c2}" stroke="rgba(0,0,0,.4)" stroke-width="1.5">${p.num}</text>`:''}</svg>`}
+function cardHTML(p,o={}){const r=rar(p);if(o.lock)return `<div class="pc lock"><div class="pc-in"><div class="pc-art">؟</div><div class="pc-name">قفل</div><div class="pc-rar">${RN[r]}</div></div></div>`;
+return `<div class="pc r${r}"><div class="pc-in"><div class="pc-top"><b>${fa(p.ovr)}</b><span>${POSN[p.pos]}</span></div><div class="pc-art">${portrait(p)}</div><div class="pc-name">${p.fa}</div><div class="pc-sub">${NAT[p.nat][1]} ${NAT[p.nat][0]}</div><div class="pc-sub">${p.clubs[p.clubs.length-1]}</div><div class="pc-rar">${RN[r]}</div>${o.count>1?`<span class="cnt">×${fa(o.count)}</span>`:''}</div></div>`}
+function avatarHTML(cls){const inner=S.photo?`<img src="${S.photo}" alt="">`:S.avatar;return `<div class="av ${S.frame?'f-'+S.frame:''} ${cls||''}">${inner}</div>`}
+
+/* ============ نمایش‌ها ============ */
+const VIEWS={};
+function topHTML(){const l=lvlOf(S.xp),a=50*(l-1)*(l-1),b=50*l*l,pr=clamp((S.xp-a)/(b-a)*100,0,100);
+return `<div class="tb"><button data-a="nav" data-v="profile" aria-label="پروفایل">${avatarHTML()}</button><div class="who"><b>${esc(S.name)}</b><small>سطح ${fa(l)} — ${fa(S.xp)} امتیاز</small><div class="xpb"><u style="width:${pr}%"></u></div></div><div class="cur"><span class="chip"><i class="ic coin"></i>${fa(S.coins)}</span><span class="chip"><i class="ic gem"></i>${fa(S.gems)}</span></div></div>`}
+function updateTop(){$('#top').innerHTML=topHTML()}
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function navHTML(){const t=[['home','🏠','خانه'],['play','⚽','مسابقه'],['cards','🃏','کارت‌ها'],['board','🏆','رتبه‌بندی'],['profile','👤','پروفایل']];return '<div>'+t.map(x=>`<button class="${UI.tab===x[0]?'on':''}" data-a="nav" data-v="${x[0]}"><em>${x[1]}</em>${x[2]}</button>`).join('')+'</div>'}
+function render(){ensureDaily();updateTop();renderMain();$('#nav').innerHTML=navHTML();document.body.dataset.theme=S.theme;document.body.classList.toggle('inq',UI.view==='quiz')}
+function renderMain(){$('#main').innerHTML=(VIEWS[UI.view]||VIEWS.home)()}
+function go(v){UI.view=v;if(['home','play','cards','board','profile'].includes(v))UI.tab=v;else if(v==='online')UI.tab='play';else if(v==='team')UI.tab='cards';else UI.tab='home';render();window.scrollTo(0,0)}
+const backBar=(t,to)=>`<div class="bar"><button class="back" data-a="go" data-v="${to||'home'}" aria-label="بازگشت">›</button><h2>${t}</h2></div>`;
+function claimable(){ensureDaily();return MISSIONS().filter(m=>m.cur()>=m.max&&!m.done()).length}
+function dailyAvail(){return S.daily.last!==today()}
+
+VIEWS.home=function(){const n=nextLevel(),r=rngFrom(hashStr('F'+today())),feat=shuffle(PL.filter(p=>rar(p)>=3),r)[0],cm=claimable();
+return `<section class="hero"><div class="logo"><span>Football</span><b>Legends</b><small>بازیکن‌ها را از روی تصویر، سرنخ و آمار بشناس</small></div>
+<div class="heroCard" data-a="cardView" data-v="${feat.id}">${cardHTML(feat)}</div>
+<button class="cta" data-a="startLevel" data-v="${n}">شروع بازی<small>مرحله ${fa(n)} از ${fa(LV)}</small></button></section>
+<div class="tiles">
+<button class="tile" data-a="dailyInfo"><em>📅</em><b>مسابقه روزانه</b><small>${S.daily.played===today()?'امروز بازی شد':'جایزه ویژه امروز'}</small></button>
+<button class="tile" data-a="go" data-v="online"><em>🌐</em><b>رقابت با دوستان</b><small>روی یک گوشی یا با کد چالش</small></button>
+<button class="tile" data-a="go" data-v="levels"><em>🏟️</em><b>لیگ بازیکنان</b><small>${fa(LV)} مرحله، ${fa(levelsDone())} تکمیل</small></button>
+<button class="tile" data-a="nav" data-v="cards"><em>🃏</em><b>مجموعه کارت‌ها</b><small>${fa(Object.keys(S.cards).length)} از ${fa(PL.length)}</small></button>
+<button class="tile" data-a="go" data-v="shop"><em>🛒</em><b>فروشگاه</b><small>سرنخ، بسته و آواتار</small></button>
+<button class="tile" data-a="go" data-v="missions">${cm?'<i class="dot"></i>':''}<em>🎯</em><b>مأموریت‌ها</b><small>${cm?fa(cm)+' جایزه آماده':'پاداش روزانه'}</small></button>
+<button class="tile" data-a="nav" data-v="board"><em>🏆</em><b>برترین بازیکنان</b><small>لیگ ${LEAGUES[leagueOf(S.xp)][0]}</small></button>
+<button class="tile" data-a="nav" data-v="profile"><em>👤</em><b>پروفایل کاربر</b><small>${fa(Object.keys(S.badges).length)} نشان</small></button>
+<button class="tile" data-a="go" data-v="reward">${dailyAvail()?'<i class="dot"></i>':''}<em>🎁</em><b>جوایز روزانه</b><small>${dailyAvail()?'جایزه امروز آماده است':'فردا دوباره بیا'}</small></button>
+<button class="tile" data-a="go" data-v="settings"><em>⚙️</em><b>تنظیمات</b><small>صدا، تم، نام</small></button></div>`};
+
+VIEWS.play=function(){return `<div class="bar"><h2>مسابقه</h2></div>
+<p class="muted" style="margin-top:0">یک حالت انتخاب کن؛ ۱۰ سؤال از بازیکن‌های متنوع. سختی با سطح تو بالا می‌رود.</p>
+<div class="grid2">${MODES.map(m=>`<button class="tile" data-a="quick" data-v="${m}"><em>${MI[m]}</em><b>${MN[m]}</b><small>${{img:'تصویر و ۴ گزینه',hide:'با سرنخ تصویر را واضح کن',info:'پست، ملیت و باشگاه',stats:'آمار و دستاوردها',path:'از روی باشگاه‌هایش',fact:'از روی افتخاراتش'}[m]}</small></button>`).join('')}</div>
+<button class="tile" style="width:100%;margin-top:10px" data-a="practice"><em>🧠</em><b>تمرین اشتباهات</b><small>${fa(Object.keys(S.miss).length)} بازیکن که اشتباه زده‌ای؛ تا درست نزنی تکرار می‌شوند</small></button>
+<h3>چالش‌ها</h3>
+<button class="tile" style="width:100%;margin-bottom:10px" data-a="dailyInfo"><em>📅</em><b>مسابقه روزانه</b><small>همه امروز یک سؤال‌ها را دارند؛ جایزهٔ یک‌بار در روز</small></button>
+<button class="tile" style="width:100%;margin-bottom:10px" data-a="go" data-v="levels"><em>🏟️</em><b>لیگ بازیکنان</b><small>${fa(LV)} مرحله از آماتور تا افسانه</small></button>
+<button class="tile" style="width:100%" data-a="go" data-v="online"><em>🌐</em><b>رقابت با دوستان</b><small>روی یک گوشی یا با کد چالش</small></button>`};
+
+VIEWS.levels=function(){const nl=nextLevel();let h=backBar('لیگ بازیکنان')+`<p class="muted" style="margin-top:0">${fa(LV)} مرحله؛ هیچ سؤالی در دو مرحله تکرار نمی‌شود.</p>`;
+CAMP.tiers.forEach(T=>{h+=`<div class="tier"><b>${T.name}</b><span class="pill">مرحله ${fa(T.from)} تا ${fa(T.to)}</span><i></i></div><div class="grid3" style="grid-template-columns:repeat(5,1fr);gap:8px">`;
+for(let n=T.from;n<=T.to;n++){const st=S.cl[n]||0,lk=n>1&&!(S.cl[n-1]>0);h+=`<button class="lv ${n===nl?'cur':''} ${lk?'lk':''}" data-a="${lk?'locked':'level'}" data-v="${n}">${fa(n)}<small>${st?'★'.repeat(st):''}</small></button>`}h+='</div>'});return h};
+VIEWS.cards=function(){const owned=Object.keys(S.cards).length,list=PL.filter(p=>UI.cf<0||rar(p)===UI.cf).sort((a,b)=>b.ovr-a.ovr);
+return `<div class="bar"><h2>مجموعه کارت‌ها</h2><span class="pill gold">${fa(owned)} / ${fa(PL.length)}</span></div>
+<div class="prog" style="margin-bottom:12px"><u style="width:${owned/PL.length*100}%"></u></div>
+<div class="grid2" style="margin-bottom:12px"><button class="cta sm alt" data-a="pack" data-v="bronze">بسته برنزی<small>۳ کارت — ۱۵۰ سکه</small></button><button class="cta sm" data-a="pack" data-v="gold">بسته طلایی<small>۳ کارت با حماسی تضمینی — ۸ الماس</small></button></div>
+<button class="tile" style="width:100%;margin-bottom:12px" data-a="go" data-v="team"><em>🧩</em><b>ترکیب تیم من</b><small>۱۱ نفر از کارت‌هایت را در زمین بچین</small></button>
+<div class="chips"><button class="${UI.cf<0?'on':''}" data-a="cf" data-v="-1">همه</button>${RN.map((r,i)=>`<button class="${UI.cf===i?'on':''}" data-a="cf" data-v="${i}">${r}</button>`).join('')}</div>
+<div class="grid3">${list.map(p=>S.cards[p.id]?`<button data-a="cardView" data-v="${p.id}">${cardHTML(p,{count:S.cards[p.id]})}</button>`:`<button data-a="locked2">${cardHTML(p,{lock:1})}</button>`).join('')}</div>
+<p class="muted" style="margin-top:14px">تصاویر کارت‌ها طراحی خود بازی هستند (بدون عکس یا لوگوی دارای حق نشر) و امتیاز کارت‌ها ارزش‌گذاری بازی است، نه آمار رسمی.</p>`};
+
+function boardRows(){const r=rngFrom(777),nm=['گلزن نمونه','سرمربی نمونه','کاپیتان نمونه','دروازه‌بان نمونه','هافبک نمونه','مدافع نمونه','وینگر نمونه','مهاجم نمونه','لژیونر نمونه','ستاره نمونه','فوتبال‌باز نمونه','تحلیلگر نمونه','هوادار نمونه','استعداد نمونه','شکارچی نمونه','بازیساز نمونه','کاپیتان آزمایشی','گلر آزمایشی','مربی آزمایشی','ستاره آزمایشی','هافبک آزمایشی','مهاجم آزمایشی','مدافع آزمایشی','اسطوره آزمایشی'],ev=['🦁','🐺','🦅','🐉','🔥','👑','🏆','⚽'];
+const rows=nm.map((n,i)=>({n,av:ev[i%8],xp:Math.floor(r()*r()*14000)+40,sample:1}));rows.push({n:S.name,av:S.avatar,xp:S.xp,me:1});rows.sort((a,b)=>b.xp-a.xp);return rows}
+VIEWS.board=function(){const rows=boardRows(),li=leagueOf(S.xp),L=LEAGUES[li],nx=LEAGUES[li+1],me=rows.findIndex(x=>x.me),show=rows.slice(0,15);if(me>=15)show.push(rows[me]);
+const row=(x,i)=>{const rk=rows.indexOf(x)+1;return `<div class="lb ${x.me?'me':''}"><span class="rk">${fa(rk)}</span><div class="av">${x.me&&S.photo?`<img src="${S.photo}" alt="">`:x.av}</div><div class="sp"><b>${esc(x.n)}</b> ${x.sample?'<span class="pill">نمونه</span>':''}<div class="muted">سطح ${fa(lvlOf(x.xp))}</div></div><b style="color:var(--gold)">${fa(x.xp)}</b></div>`};
+return `<div class="bar"><h2>رتبه‌بندی</h2></div>
+<div class="card2"><div class="row"><div class="big" style="font-size:38px;color:${L[2]}">${L[0]}</div><div class="sp"><div class="muted">رتبه تو: <b style="color:var(--ink)">${fa(me+1)}</b> از ${fa(rows.length)}</div>${nx?`<div class="prog" style="margin:6px 0 2px"><u style="width:${(S.xp-L[1])/(nx[1]-L[1])*100}%"></u></div><div class="muted">${fa(nx[1]-S.xp)} امتیاز تا لیگ ${nx[0]}</div>`:'<div class="muted">بالاترین لیگ</div>'}</div></div></div>
+<div class="chips">${LEAGUES.map((l,i)=>`<span class="pill ${i===li?'gold':''}" style="flex:none">${l[0]} ${fa(l[1])}+</span>`).join('')}</div>
+<div class="ban warn">این جدول فقط برای نمایش است و کاربران «نمونه» بازیکن واقعی نیستند؛ در نسخه آفلاین رتبه‌بندی بین بازیکنان واقعی وجود ندارد.</div>
+${show.map(row).join('')}`};
+
+VIEWS.profile=function(){const l=lvlOf(S.xp),st=S.stats,pc=st.answered?Math.round(st.correct/st.answered*100):0;
+return `<div class="bar"><h2>پروفایل</h2></div>
+<div class="card2" style="text-align:center">${avatarHTML('big')}<div style="font-size:21px;font-weight:900;margin-top:8px">${esc(S.name)}</div><div class="muted">${titleOf(l)} — لیگ ${LEAGUES[leagueOf(S.xp)][0]}</div>
+<div class="row" style="margin-top:12px"><button class="ghost" data-a="photo">انتخاب عکس از دستگاه</button>${S.photo?'<button class="ghost" data-a="photoDel" style="width:auto">حذف عکس</button>':''}</div></div>
+<div class="sum" style="grid-template-columns:repeat(3,1fr)"><div><b>${fa(l)}</b><small>سطح</small></div><div><b>${fa(S.xp)}</b><small>XP</small></div><div><b>${fa(pc)}٪</b><small>درصد موفقیت</small></div><div><b>${fa(st.correct)}</b><small>پاسخ صحیح</small></div><div><b>${fa(st.games)}</b><small>مسابقه</small></div><div><b>${fa(Object.keys(S.cards).length)}</b><small>کارت</small></div><div><b>${fa(levelsDone())}</b><small>مرحله تکمیل</small></div><div><b>${fa(identCount())}</b><small>بازیکن شناخته‌شده</small></div><div><b>${fa(Object.keys(S.badges).length)}</b><small>نشان</small></div></div>
+<h3>کارت‌های من</h3>${Object.keys(S.cards).length?`<div class="grid3">${Object.keys(S.cards).map(id=>PM[id]).sort((a,b)=>b.ovr-a.ovr).slice(0,6).map(p=>`<button data-a="cardView" data-v="${p.id}">${cardHTML(p)}</button>`).join('')}</div><div class="grid2" style="margin-top:10px"><button class="ghost" data-a="nav" data-v="cards">همه کارت‌ها</button><button class="ghost" data-a="go" data-v="team">ترکیب تیم</button></div>`:'<p class="muted">هنوز کارتی نداری؛ از تب کارت‌ها بسته باز کن.</p>'}
+<h3>آواتار</h3><div class="chips">${S.own.av.map(a=>`<button class="${!S.photo&&S.avatar===a?'on':''}" data-a="setAv" data-v="${a}" style="font-size:22px">${a}</button>`).join('')}</div>
+<h3>قاب</h3><div class="chips">${S.own.fr.map(f=>`<button class="${S.frame===f?'on':''}" data-a="setFr" data-v="${f}">${FRN[f]}</button>`).join('')}</div>
+<h3>دقت در هر حالت</h3>${MODES.map(m=>{const x=S.ms[m]||[0,0],pc=x[1]?Math.round(x[0]/x[1]*100):0;return `<div class="lb"><span>${MI[m]}</span><span class="sp">${MN[m]}<div class="prog" style="margin-top:4px"><u style="width:${pc}%"></u></div></span><b>${x[1]?fa(pc)+'٪':'—'}</b></div>`}).join('')}
+<h3>نشان‌های افتخار</h3><div class="grid2">${BADGES.map(b=>`<div class="card2" style="margin:0;opacity:${S.badges[b.id]?1:.45};text-align:center"><div style="font-size:30px">${b.e}</div><b style="font-size:13.5px">${b.n}</b><div class="muted" style="font-size:11.5px">${b.d}</div></div>`).join('')}</div>
+<h3>تاریخچه دستاوردها</h3>${S.hist.length?S.hist.slice(0,12).map(h=>`<div class="lb"><span class="muted">${h.d}</span><span class="sp">${h.t}</span></div>`).join(''):'<p class="muted">هنوز دستاوردی ثبت نشده. اولین مرحله را بازی کن.</p>'}`};
+const FRN={'':'ساده','gold':'طلایی','neon':'نئونی','flame':'آتشین'};
+
+const MISSIONS=()=>[
+{id:'correct',t:'پاسخ صحیح به ۱۰ سؤال',max:10,r:{coins:40,xp:30},cur:()=>S.m.prog.correct||0,done:()=>S.m.claimed.correct,d:1},
+{id:'levels',t:'تکمیل پنج مرحله',max:5,r:{coins:80,gems:1,xp:60},cur:()=>S.m.prog.levels||0,done:()=>S.m.claimed.levels,d:1},
+{id:'hard',t:'پاسخ صحیح به پنج سؤال سخت',max:5,r:{coins:60,xp:50},cur:()=>S.m.prog.hard||0,done:()=>S.m.claimed.hard,d:1},
+{id:'login',t:'ورود روزانه به بازی',max:1,r:{coins:20},cur:()=>S.m.prog.login||0,done:()=>S.m.claimed.login,d:1},
+{id:'ident',t:'شناسایی ۲۰ بازیکن',max:20,r:{coins:150,gems:2,xp:100},cur:()=>identCount(),done:()=>S.cp.ident},
+{id:'rare5',t:'جمع‌آوری پنج کارت کمیاب یا بالاتر',max:5,r:{coins:100,gems:2},cur:()=>rareOwned(),done:()=>S.cp.rare5}];
+const rtxt=r=>[r.coins&&fa(r.coins)+' سکه',r.gems&&fa(r.gems)+' الماس',r.xp&&fa(r.xp)+' XP'].filter(Boolean).join(' + ');
+VIEWS.missions=function(){const row=m=>{const c=Math.min(m.cur(),m.max),ok=c>=m.max,dn=m.done();return `<div class="card2"><div class="row"><div class="sp"><b>${m.t}</b><div class="muted">${rtxt(m.r)}</div></div><button class="btn-s" data-a="claim" data-v="${m.id}" ${(!ok||dn)?'disabled':''}>${dn?'دریافت شد':'دریافت'}</button></div><div class="prog" style="margin-top:8px"><u style="width:${c/m.max*100}%"></u></div><div class="muted" style="text-align:left">${fa(c)} / ${fa(m.max)}</div></div>`};
+const all=MISSIONS();return backBar('مأموریت‌ها')+'<h3 style="margin-top:0">روزانه</h3>'+all.filter(m=>m.d).map(row).join('')+'<h3>همیشگی</h3>'+all.filter(m=>!m.d).map(row).join('')};
+
+const R7=[{c:50,t:'۵۰ سکه',e:'🪙'},{c:80,t:'۸۰ سکه',e:'🪙'},{g:1,t:'۱ الماس',e:'💎'},{c:120,t:'۱۲۰ سکه',e:'🪙'},{c:50,x:80,t:'۵۰ سکه و ۸۰ XP',e:'⭐'},{g:2,t:'۲ الماس',e:'💎'},{p:1,t:'بسته طلایی',e:'🎁'}];
+VIEWS.reward=function(){const av=dailyAvail(),streak=av?(S.daily.last===yesterday()?S.daily.streak:0):S.daily.streak,idx=av?streak%7:(S.daily.streak-1)%7;
+return backBar('جوایز روزانه')+`<p class="muted" style="margin-top:0">هر روز وارد شو و زنجیره را حفظ کن. با نیامدن یک روز، زنجیره از اول شروع می‌شود.</p><div class="days">${R7.map((r,i)=>`<div class="day ${i===idx&&av?'cur':''} ${(av?i<idx:i<=idx)&&streak>0?'done':''}"><em>${r.e}</em>روز ${fa(i+1)}<br>${r.t}</div>`).join('')}</div><button class="cta" style="margin-top:16px" data-a="claimDaily" ${av?'':'disabled'}>${av?'دریافت جایزه امروز':'جایزه امروز دریافت شد'}</button>`};
+
+const SHOP=[
+{id:'b_hint',e:'💡',n:'۳ سرنخ',cur:'c',p:40,give:i=>S.inv.hint+=3},{id:'b_rem',e:'✂️',n:'۳ حذف پاسخ اشتباه',cur:'c',p:50,give:i=>S.inv.remove+=3},{id:'b_rev',e:'🔦',n:'۳ آشکارسازی تصویر',cur:'c',p:40,give:i=>S.inv.reveal+=3},
+{id:'x_gem',e:'💱',n:'تبدیل ۵۰۰ سکه به ۳ الماس',cur:'c',p:500,give:i=>S.gems+=3}];
+const SHOP2=[
+{id:'a_lion',e:'🦁',n:'آواتار شیر',cur:'c',p:80,type:'av'},{id:'a_wolf',e:'🐺',n:'آواتار گرگ',cur:'c',p:80,type:'av'},{id:'a_eagle',e:'🦅',n:'آواتار عقاب',cur:'c',p:120,type:'av'},{id:'a_dragon',e:'🐉',n:'آواتار اژدها',cur:'g',p:3,type:'av'},{id:'a_fire',e:'🔥',n:'آواتار آتش',cur:'g',p:3,type:'av'},{id:'a_crown',e:'👑',n:'آواتار تاج',cur:'g',p:5,type:'av'},
+{id:'f_gold',e:'🟡',n:'قاب طلایی',cur:'c',p:200,type:'fr',v:'gold'},{id:'f_neon',e:'🔷',n:'قاب نئونی',cur:'g',p:4,type:'fr',v:'neon'},{id:'f_flame',e:'🟠',n:'قاب آتشین',cur:'g',p:8,type:'fr',v:'flame'},
+{id:'t_em',e:'🌿',n:'تم زمرد',cur:'c',p:300,type:'th',v:'emerald'},{id:'t_roy',e:'🔮',n:'تم سلطنتی',cur:'g',p:6,type:'th',v:'royal'}];
+const isOwned=s=>s.type==='av'?S.own.av.includes(s.e):s.type==='fr'?S.own.fr.includes(s.v):S.own.th.includes(s.v);
+const priceT=(c,p)=>fa(p)+(c==='c'?' سکه':' الماس');
+VIEWS.shop=function(){return backBar('فروشگاه')+`<p class="muted" style="margin-top:0">همه خریدها با ارز مجازی بازی است؛ پرداخت واقعی وجود ندارد.</p>
+<h3>بسته کارت</h3><div class="shopi"><em>📦</em><div><b>بسته برنزی</b><small>۳ کارت تصادفی</small></div><button class="btn-s" data-a="pack" data-v="bronze">۱۵۰ سکه</button></div><div class="shopi"><em>🎁</em><div><b>بسته طلایی</b><small>۳ کارت، حداقل یک حماسی</small></div><button class="btn-s neon" data-a="pack" data-v="gold">۸ الماس</button></div>
+<h3>کمکی‌ها</h3>${SHOP.map(s=>`<div class="shopi"><em>${s.e}</em><div><b>${s.n}</b>${s.id==='b_hint'?`<small>موجودی: ${fa(S.inv.hint)}</small>`:s.id==='b_rem'?`<small>موجودی: ${fa(S.inv.remove)}</small>`:s.id==='b_rev'?`<small>موجودی: ${fa(S.inv.reveal)}</small>`:''}</div><button class="btn-s" data-a="buy" data-v="${s.id}">${priceT(s.cur,s.p)}</button></div>`).join('')}
+<h3>آواتار، قاب و تم</h3>${SHOP2.map(s=>{const o=isOwned(s);return `<div class="shopi"><em>${s.e}</em><div><b>${s.n}</b></div><button class="btn-s ${s.cur==='g'?'neon':''}" data-a="buy" data-v="${s.id}" ${o?'disabled':''}>${o?'دارم':priceT(s.cur,s.p)}</button></div>`}).join('')}`};
+
+VIEWS.settings=function(){const th={night:'شب استادیوم',emerald:'زمرد',royal:'سلطنتی'};
+return backBar('تنظیمات')+`<div class="card2"><b>نام کاربری</b><input type="text" maxlength="16" value="${esc(S.name)}" data-in="name" style="margin-top:8px"></div>
+<div class="card2"><b>صدای افکت‌ها</b><input type="range" min="0" max="100" value="${Math.round(S.set.sfx*100)}" data-in="sfx"><b>صدای موسیقی</b><input type="range" min="0" max="100" value="${Math.round(S.set.music*100)}" data-in="music"><div class="row" style="margin-top:8px"><span class="sp">موسیقی پس‌زمینه</span><button class="btn-s" data-a="musicT">${S.set.musicOn?'خاموش کردن':'روشن کردن'}</button></div></div>
+<div class="card2"><b>تم گرافیکی</b><div class="seg" style="margin-top:8px">${S.own.th.map(t=>`<button class="${S.theme===t?'on':''}" data-a="setTh" data-v="${t}">${th[t]}</button>`).join('')}</div><div class="muted" style="margin-top:6px">تم‌های بیشتر در فروشگاه.</div></div>
+<div class="card2"><b>ذخیره‌سازی</b><p class="muted" style="margin:6px 0">${storageOK?'پیشرفت در حافظه مرورگر (localStorage) همین دستگاه ذخیره می‌شود. بین دستگاه‌ها همگام نمی‌شود و با پاک‌کردن داده‌های مرورگر از بین می‌رود.':'حافظه مرورگر در دسترس نیست؛ پیشرفت فقط تا بستن این صفحه نگه داشته می‌شود.'}</p><button class="ghost" data-a="resetAsk">بازنشانی کل پیشرفت</button></div>
+<div class="card2"><b>دربارهٔ داده‌ها</b><p class="muted" style="margin:6px 0">اطلاعات بازیکن‌ها با دقت نوشته شده و موارد تقریبی برچسب «تقریبی» دارند، اما ممکن است نیازمند بررسی باشند. تصاویر کارت‌ها طراحی خود بازی هستند و از لوگو یا عکس دارای حق نشر استفاده نشده است.</p></div>`};
+
+/* ============ موتور مسابقه ============ */
+const posOrder=a=>a;
+function clueList(p,mode){const en=p.en.replace(/[^A-Za-zÀ-ÿ]/g,''),n=NAT[p.nat],L=[];
+const letters=[`نام انگلیسی ${fa(en.length)} حرف دارد`,`حرف اول نام انگلیسی: ${p.en[0]}`,`حرف آخر نام انگلیسی: ${en[en.length-1].toUpperCase()}`];
+if(mode==='img')L.push('جایگاه: '+POSN[p.pos],'باشگاه اول: '+p.clubs[0],'آخرین باشگاه: '+p.clubs[p.clubs.length-1]);
+else if(mode==='hide')L.push('جایگاه: '+POSN[p.pos],'ملیت: '+n[0],'باشگاه اول: '+p.clubs[0],p.num?'شماره پیراهن: '+fa(p.num):'آخرین باشگاه: '+p.clubs[p.clubs.length-1]);
+else if(mode==='stats')L.push('جایگاه: '+POSN[p.pos],'ملیت: '+n[0],'باشگاه اول: '+p.clubs[0]);
+else if(mode==='path')L.push('ملیت: '+n[0],p.num?'شماره پیراهن: '+fa(p.num):'جایگاه: '+POSN[p.pos]);
+else if(mode==='fact')L.push('جایگاه: '+POSN[p.pos],'ملیت: '+n[0],'باشگاه اول: '+p.clubs[0]);
+return L.concat(letters)}
+function buildQs(kind,o){let pool,rng,count=o.count||5,qs=[];
+if(kind==='level'){const r2=rngFrom(hashStr('L'+o.level)),t=CAMP.tierOf[o.level-1];return CAMP.levels[o.level-1].map(([pid,mode])=>{const p=PM[pid];let ot=shuffle(PL.filter(x=>x.id!==pid),r2);if(t>=1)ot.sort((a,b)=>((b.pos===p.pos)+(t>=3&&b.nat===p.nat))-((a.pos===p.pos)+(t>=3&&a.nat===p.nat)));return{pid,mode,opts:shuffle([pid,...ot.slice(0,3).map(x=>x.id)],r2)}})}
+if(kind==='level'){const d=Math.ceil(o.level/LPT);rng=rngFrom(hashStr('L'+o.level));pool=PL.filter(p=>p.diff>=Math.max(1,d-1)&&p.diff<=Math.min(5,d+1))}
+else if(kind==='daily'){rng=rngFrom(hashStr('D'+today()));pool=PL.filter(p=>p.diff<=4)}
+else if(kind==='seed'){rng=rngFrom(hashStr('C'+o.code));pool=PL.filter(p=>p.diff<=4)}
+else if(kind==='versus'){rng=Math.random;pool=PL.filter(p=>p.diff<=3)}
+else{rng=Math.random;const mx=Math.min(5,2+Math.floor(lvlOf(S.xp)/4));pool=o.pool||PL.filter(p=>p.diff<=mx)}
+const pick=shuffle(pool,rng).slice(0,count);
+pick.forEach((p,j)=>{let mode=kind==='level'?MODES[(o.level-1+j)%4]:(kind==='daily'||kind==='seed')?MODES[j%MODES.length]:kind==='quick'?(o.mode||MODES[Math.floor(rng()*MODES.length)]):MODES[Math.floor(rng()*MODES.length)];
+let others=shuffle(PL.filter(x=>x.id!==p.id),rng);if(p.diff>=3||(o.level&&o.level>40))others.sort((a,b)=>(b.pos===p.pos)-(a.pos===p.pos));
+qs.push({pid:p.id,mode,opts:shuffle([p.id,...others.slice(0,3).map(x=>x.id)],rng)})});return qs}
+function startQuiz(kind,o){o=o||{};const qs=buildQs(kind,o);Q={kind,level:o.level,mode:o.mode,qs,i:0,ok:0,score:0,streak:0,earn:{c:0,x:0},players:o.players||null,turn:0,room:o.room,code:o.code};
+Q.practice=!!o.practice;
+closeModal();UI.view='quiz';beginQ();render();window.scrollTo(0,0)}
+function curQ(){return Q.qs[Q.i]}
+function beginQ(){const q=curQ(),p=PM[q.pid];Q.st=Q.kind==='versus'?'ready':'play';Q.bad=[];Q.rm=[];Q.cl=0;Q.blur=0;Q.retried=false;Q.hints=0;Q.fb=null;Q.counted=false;
+Q.tmax=Q.kind==='versus'?15:Math.max(12,26-2*p.diff);Q.t=Q.tmax;Q.anim='';renderMain();if(Q.st==='play')timerRun()}
+let TM=null;
+function timerStop(){clearInterval(TM);TM=null}
+function timerRun(){timerStop();TM=setInterval(()=>{Q.t-=.1;const f=$('#tf'),tt=$('#tt');if(f){f.style.width=Math.max(0,Q.t/Q.tmax*100)+'%';f.classList.toggle('low',Q.t<5)}if(tt)tt.textContent=fa(Math.ceil(Math.max(0,Q.t)));if(Q.t<=3&&Q.t>0&&Math.abs(Q.t-Math.round(Q.t))<.06)sfx.tick();if(Q.t<=0){timerStop();timeout()}},100)}
+document.addEventListener('visibilitychange',()=>{if(document.hidden){timerStop();musicStop()}else{if(Q&&UI.view==='quiz'&&Q.st==='play')timerRun();musicStart()}});
+function countAns(ok){if(Q.counted)return;Q.counted=true;if(Q.kind==='versus')return;S.stats.answered++;const q=curQ(),ms=S.ms[q.mode]||(S.ms[q.mode]=[0,0]);ms[1]++;if(ok){ms[0]++;if(S.miss[q.pid]){S.miss[q.pid]--;if(!S.miss[q.pid])delete S.miss[q.pid]}}else S.miss[q.pid]=(S.miss[q.pid]||0)+1}
+function vib(x){try{navigator.vibrate&&navigator.vibrate(x)}catch(e){}}
+function answer(id){if(!Q||Q.st!=='play'||Q.bad.includes(id)||Q.rm.includes(id))return;timerStop();const q=curQ(),p=PM[q.pid];if(id===q.pid)onRight(p);else onWrong(id)}
+function onRight(p){Q.st='right';sfx.ok();vib(25);Q.anim='flash';
+const vs=Q.kind==='versus';let pts=100+Math.round(Math.max(0,Q.t)*(vs?10:4))+(vs?0:Math.min(Q.streak,5)*10)-Q.hints*15;if(Q.retried)pts=Math.round(pts/2);pts=Math.max(20,pts);
+if(vs){Q.players[Q.turn].score+=pts;Q.players[Q.turn].ok++;Q.fb={pts}}
+else{Q.score+=pts;Q.ok++;Q.streak=Q.retried?0:Q.streak+1;countAns(true);S.stats.correct++;S.ident[p.id]=1;if(p.diff>=3){S.stats.hard++;track('hard')}track('correct');
+const c=3+p.diff*(Q.retried?1:2),x=8+p.diff*3;S.coins+=c;Q.earn.c+=c;Q.earn.x+=x;addXp(x);Q.fb={pts,c,x};save();updateTop()}
+renderMain();burst(innerWidth/2,innerHeight*.35,26)}
+function onWrong(id){sfx.bad();vib([40,40,40]);Q.anim='shake';Q.streak=0;Q.bad.push(id);Q.fb={msg:'پاسخ درست نبود.'};
+if(Q.kind==='versus'){Q.st='reveal';Q.fb.pts=0}else Q.st='wrong';renderMain()}
+function timeout(){if(Q.st!=='play')return;sfx.bad();Q.streak=0;Q.anim='shake';Q.fb={msg:'زمان تمام شد.'};Q.st=Q.kind==='versus'?'reveal':'wrong';renderMain()}
+function showAnswer(){if(!Q||Q.st!=='wrong')return;Q.st='reveal';countAns(false);Q.anim='';renderMain()}
+function retry(){if(Q.st!=='wrong')return;if(S.coins<15){toast('سکه کافی نداری. «نمایش پاسخ» را بزن.');return}S.coins-=15;save();updateTop();Q.retried=true;Q.st='play';Q.t=Q.tmax;Q.anim='';renderMain();timerRun()}
+function boost(t){if(!Q||Q.st!=='play'||Q.kind==='versus')return;const q=curQ(),p=PM[q.pid],cost={hint:15,remove:20,reveal:15}[t];
+let can=true;
+if(t==='hint'){if(Q.cl>=clueList(p,q.mode).length){toast('سرنخ دیگری باقی نمانده');can=false}}
+if(t==='remove'){const w=q.opts.filter(o=>o!==q.pid&&!Q.rm.includes(o)&&!Q.bad.includes(o));if(w.length<=1){toast('فقط یک گزینهٔ اشتباه مانده');can=false}}
+if(t==='reveal'){if(q.mode!=='hide'||Q.blur>=3){toast('تصویر کاملاً واضح است');can=false}}
+if(!can)return;
+if(S.inv[t]>0)S.inv[t]--;else if(S.coins>=cost)S.coins-=cost;else{toast('سکه کافی نداری. از فروشگاه بخر.');return}
+Q.hints++;sfx.coin();
+if(t==='hint')Q.cl++;
+if(t==='remove'){const w=q.opts.filter(o=>o!==q.pid&&!Q.rm.includes(o)&&!Q.bad.includes(o));Q.rm.push(w[Math.floor(Math.random()*w.length)])}
+if(t==='reveal')Q.blur++;
+save();updateTop();renderMain()}
+function nextQ(){if(!Q)return;if(Q.kind==='versus'){Q.turn++;if(Q.turn>=Q.players.length){Q.turn=0;Q.i++}}else Q.i++;if(Q.i>=Q.qs.length)finish();else beginQ()}
+function startTurn(){Q.st='play';Q.t=Q.tmax;renderMain();timerRun()}
+function finish(){timerStop();const n=Q.qs.length,res={kind:Q.kind,ok:Q.ok,n,score:Q.score,earn:{c:Q.earn.c,x:Q.earn.x},level:Q.level};S.stats.games++;
+if(Q.kind==='level'){const L=Q.level,ratio=Q.ok/n,passed=ratio>=.6,stars=ratio>=1?3:ratio>=.8?2:ratio>=.6?1:0;res.passed=passed;res.stars=stars;
+if(passed){const first=!(S.cl[L]>0);S.cl[L]=Math.max(S.cl[L]||0,stars);const c=30+L+stars*10,x=40+L;S.coins+=c;res.earn.c+=c;res.earn.x+=x;addXp(x);if(first&&L%10===0){S.gems+=5;res.gem=5}else if(first&&stars===3){S.gems+=1;res.gem=1}track('levels');hist('تکمیل مرحله '+fa(L)+' با '+fa(stars)+' ستاره')}}
+else if(Q.kind==='daily'){res.passed=true;if(S.daily.played!==today()){S.daily.played=today();const c=30+Q.ok*10,g=Q.ok>=4?2:1,x=40+Q.ok*10;S.coins+=c;S.gems+=g;res.earn.c+=c;res.earn.x+=x;res.gem=g;addXp(x);S.stats.daily++;hist('مسابقه روزانه: '+fa(Q.ok)+' از '+fa(n))}else res.replay=true}
+else if(Q.kind==='seed'){res.passed=true;res.code=Q.code;if(!S.codes[Q.code]){S.codes[Q.code]=1;const c=10+Q.ok*5;S.coins+=c;res.earn.c+=c}}
+else if(Q.kind==='versus'){res.rank=Q.players.slice().sort((a,b)=>b.score-a.score);res.passed=true;S.coins+=20;res.earn.c+=20;res.earn.x+=30;addXp(30)}
+else res.passed=Q.ok>=Math.ceil(n/2);
+checkBadges();save();UI.res=res;UI.view='result';render();window.scrollTo(0,0);if(res.passed){sfx.win();burst(null,null,90)}else sfx.bad()}
+
+function stageHTML(q,p,clear,blur){const n=NAT[p.nat];
+let stage='';
+if(q.mode==='img')stage=`<div class="portrait">${portrait(p)}</div><div class="tags"><span>${n[1]} ${n[0]}</span>${p.num?`<span>شماره ${fa(p.num)}</span>`:''}</div>`;
+else if(q.mode==='hide'){const b=clear?0:[13,8,4,0][blur],br=clear?1:[.6,.75,.9,1][blur];stage=`<div class="portrait" style="filter:blur(${b}px) brightness(${br})">${portrait(p)}</div><div class="path">${p.clubs.map(c=>`<span>${c}</span>`).join('<i>‹</i>')}</div><div class="tags"><span>${n[1]} ${n[0]} — ${POSN[p.pos]}</span></div>`}
+else if(q.mode==='info')stage=`<dl class="info"><dt>جایگاه</dt><dd>${POSN[p.pos]}</dd><dt>ملیت</dt><dd>${n[1]} ${n[0]}</dd><dt>باشگاه‌ها</dt><dd>${p.clubs.join('، ')}</dd>${p.num?`<dt>شماره پیراهن</dt><dd>${fa(p.num)}</dd>`:''}<dt>افتخار شاخص</dt><dd>${p.f[0]}</dd></dl>`;
+else if(q.mode==='path')stage=`<div class="muted" style="text-align:center">این بازیکن به ترتیب در این باشگاه‌ها بازی کرده:</div><div class="path" style="margin-top:12px">${p.clubs.map(c=>`<span style="font-size:15px;padding:3px 12px">${c}</span>`).join('<i>‹</i>')}</div><div class="tags"><span>${POSN[p.pos]}</span></div>`;
+else if(q.mode==='fact')stage=`<div class="muted" style="text-align:center;margin-bottom:6px">این افتخارات برای کدام بازیکن است؟</div>${p.f.slice(0,2).map(f=>`<div class="lb" style="margin-bottom:6px"><span class="sp">${f}</span></div>`).join('')}`;
+else stage=`<dl class="info"><dt>جایگاه</dt><dd>${POSN[p.pos]}</dd></dl><div style="margin-top:8px">${p.f.map(f=>`<div class="lb" style="margin-bottom:6px"><span class="sp">${f}</span></div>`).join('')}</div><div class="muted" style="margin-top:6px">برخی آمارها تقریبی‌اند و ممکن است نیازمند بررسی باشند.</div>`;
+return stage}
+VIEWS.quiz=function(){if(!Q)return '';const q=curQ(),p=PM[q.pid],vs=Q.kind==='versus',n=NAT[p.nat],done=Q.st==='right'||Q.st==='reveal',clear=done||(q.mode==='hide'&&Q.blur>=3);
+const title=vs?'نوبت: '+esc(Q.players[Q.turn].name):Q.kind==='level'?'مرحله '+fa(Q.level):Q.kind==='daily'?'مسابقه روزانه':Q.kind==='seed'?'چالش '+Q.code:MN[Q.mode];
+const dots=Q.qs.map((x,i)=>`<i class="${i<Q.i?'d':i===Q.i?'c':''}"></i>`).join('');
+let head=`<div class="qh"><button class="x" data-a="quitAsk" aria-label="خروج">✕</button><div class="dots">${dots}</div><div class="sc">${!vs&&Q.streak>=2?`<span class="pill gold">🔥 ${fa(Q.streak)}</span> `:''}${fa(vs?Q.players[Q.turn].score:Q.score)}</div></div>`;
+if(vs&&Q.st==='ready')return head+`<div class="stage" style="text-align:center;padding:36px 12px"><div style="font-size:48px">🧤</div><div class="big" style="font-size:28px;margin:10px 0">${esc(Q.players[Q.turn].name)}</div><p class="muted">سؤال ${fa(Q.i+1)} از ${fa(Q.qs.length)}. گوشی را به این بازیکن بده؛ بقیه نگاه نکنند.</p><button class="cta" data-a="turnGo">آماده‌ام</button></div>`;
+const stage=stageHTML(q,p,clear,Q.blur);
+const cl=clueList(p,q.mode).slice(0,Q.cl);
+const opts=q.opts.map(id=>{const o=PM[id];let c='';if(Q.rm.includes(id))c='gone';if(Q.bad.includes(id))c='bad';if(done&&id===q.pid)c='good';return `<button class="opt ${c}" data-a="opt" data-v="${id}" ${(Q.st!=='play'||c==='gone'||c==='bad')?'disabled':''}>${o.fa}<small>${o.en}</small></button>`}).join('');
+const bs=(t,l)=>`<button data-a="boost" data-v="${t}" ${(Q.st!=='play'||vs)?'disabled':''}>${l}<em>${S.inv[t]>0?'×'+fa(S.inv[t]):fa({hint:15,remove:20,reveal:15}[t])+' سکه'}</em></button>`;
+let fb='';
+if(Q.st==='right')fb=`<div class="fb ok"><b>درست! ${vs?'':'+'+fa(Q.fb.pts)+' امتیاز'}</b><p>${p.fa}: ${p.f[0]}.${vs?` ${fa(Q.fb.pts)} امتیاز برای ${esc(Q.players[Q.turn].name)}.`:` +${fa(Q.fb.c)} سکه و +${fa(Q.fb.x)} XP`}</p><button class="cta sm alt" data-a="next">${Q.i===Q.qs.length-1&&(!vs||Q.turn===Q.players.length-1)?'پایان':'بعدی'}</button></div>`;
+else if(Q.st==='wrong')fb=`<div class="fb no"><b>${Q.fb.msg}</b><p>یک سرنخ بگیر و دوباره امتحان کن، یا پاسخ را ببین.</p><div class="grid2"><button class="cta sm" data-a="retry">تلاش مجدد<small>۱۵ سکه</small></button><button class="ghost" data-a="showAns">نمایش پاسخ</button></div></div>`;
+else if(Q.st==='reveal')fb=`<div class="fb no"><b>${Q.fb.msg||'پاسخ درست:'} ${p.fa}</b><p>${p.f[0]}.</p><button class="cta sm alt" data-a="next">${Q.i===Q.qs.length-1&&(!vs||Q.turn===Q.players.length-1)?'پایان':'بعدی'}</button></div>`;
+return head+`<div class="tbar"><u id="tf" style="width:${Math.max(0,Q.t/Q.tmax*100)}%"></u></div><div class="qm"><span class="pill gold">${MI[q.mode]} ${MN[q.mode]}</span><span class="muted">${title} — سؤال ${fa(Q.i+1)}/${fa(Q.qs.length)}</span><b id="tt">${fa(Math.ceil(Math.max(0,Q.t)))}</b></div>
+<div class="stage ${Q.anim}">${stage}</div><div class="clues">${cl.map(c=>`<span>${c}</span>`).join('')}</div><div class="opts">${opts}</div>
+${vs?'':`<div class="boost">${bs('hint','💡 سرنخ')}${bs('remove','✂️ حذف یک گزینه')}${q.mode==='hide'?bs('reveal','🔦 آشکار کردن'):''}</div>`}${fb}`};
+
+VIEWS.result=function(){const r=UI.res;if(!r)return '';let h='';
+const title=r.kind==='level'?(r.passed?'مرحله '+fa(r.level)+' تکمیل شد':'مرحله تکمیل نشد'):r.kind==='daily'?'مسابقه روزانه تمام شد':r.kind==='seed'?'چالش '+r.code+' تمام شد':r.kind==='versus'?'نتیجه نهایی':'پایان مسابقه';
+h+=`<div class="bar"><h2>${title}</h2></div>`;
+if(r.kind==='level')h+=`<div class="stars">${[1,2,3].map(i=>`<i class="${i<=r.stars?'on':''}">★</i>`).join('')}</div><p class="muted" style="text-align:center">${r.passed?'':'برای عبور باید حداقل ۶۰٪ پاسخ‌ها درست باشد.'}</p>`;
+if(r.kind==='versus'){h+=`<div class="big">🏆 ${esc(r.rank[0].name)}</div><div style="margin-top:14px">${r.rank.map((x,i)=>`<div class="lb ${i===0?'me':''}"><span class="rk">${fa(i+1)}</span><span class="sp"><b>${esc(x.name)}</b><div class="muted">${fa(x.ok)} پاسخ صحیح</div></span><b style="color:var(--gold)">${fa(x.score)}</b></div>`).join('')}</div><p class="muted">به‌خاطر شرکت در مسابقه ۲۰ سکه و ۳۰ XP گرفتی.</p>`}
+else h+=`<div class="sum"><div><b>${fa(r.ok)}/${fa(r.n)}</b><small>پاسخ صحیح</small></div><div><b>${fa(r.score)}</b><small>امتیاز</small></div><div><b>+${fa(r.earn.c)}</b><small>سکه</small></div><div><b>+${fa(r.earn.x)}</b><small>XP</small></div>${r.gem?`<div><b>+${fa(r.gem)}</b><small>الماس</small></div>`:''}</div>${r.code?`<div class="ban">کد چالش: <b style="direction:ltr;display:inline-block">${r.code}</b><br>کد را برای دوستت بفرست تا همین ۵ سؤال را بازی کند؛ بعد نتیجه‌ها را مقایسه کنید.</div>`:''}${r.replay?'<p class="muted">جایزهٔ ویژهٔ امروز را قبلاً گرفته‌ای؛ فردا دوباره بیا.</p>':''}`;
+const nx=r.kind==='level'&&r.passed&&r.level<LV?`<button class="cta" data-a="startLevel" data-v="${r.level+1}">مرحله بعد</button>`:'';
+return h+nx+(r.kind==='level'?`<button class="ghost" style="margin-top:10px" data-a="startLevel" data-v="${r.level}">${r.passed?'بازی دوباره برای ستاره بیشتر':'تلاش دوباره'}</button>`:r.kind==='quick'?`<button class="cta" data-a="${Q.practice?'practice':'quick'}" data-v="${Q.mode||''}">یک دست دیگر</button>`:'')+(r.kind!=='versus'?`<button class="ghost" style="margin-top:10px" data-a="share">اشتراک‌گذاری نتیجه</button>`:'')+`<button class="ghost" style="margin-top:10px" data-a="${r.kind==='level'?'go':'nav'}" data-v="${r.kind==='level'?'levels':'home'}">${r.kind==='level'?'نقشه مرحله‌ها':'صفحه اصلی'}</button>`};
+
+const FORM={'433':[['G',50,90],['D',14,70],['D',38,74],['D',62,74],['D',86,70],['M',26,48],['M',50,53],['M',74,48],['F',18,22],['F',50,15],['F',82,22]],
+'442':[['G',50,90],['D',14,70],['D',38,74],['D',62,74],['D',86,70],['M',14,46],['M',38,51],['M',62,51],['M',86,46],['F',36,20],['F',64,20]],
+'352':[['G',50,90],['D',26,72],['D',50,76],['D',74,72],['M',9,48],['M',29,53],['M',50,44],['M',71,53],['M',91,48],['F',36,20],['F',64,20]]};
+VIEWS.team=function(){const sl=S.team.s,fm=FORM[S.team.f],fl=Object.keys(sl).filter(i=>PM[sl[i]]).map(i=>PM[sl[i]]);
+const rating=fl.length?Math.round(fl.reduce((a,p)=>a+p.ovr,0)/fl.length):0;let chem=0;for(let a=0;a<fl.length;a++)for(let b=a+1;b<fl.length;b++)if(fl[a].nat===fl[b].nat)chem++;
+return backBar('ترکیب تیم من','cards')+`<div class="seg" style="margin-bottom:10px">${['433','442','352'].map(f=>`<button class="${S.team.f===f?'on':''}" data-a="form" data-v="${f}">${f.split('').join('-')}</button>`).join('')}</div>
+<div class="sum" style="grid-template-columns:repeat(3,1fr)"><div><b>${fa(fl.length)}/۱۱</b><small>بازیکن</small></div><div><b>${fa(rating)}</b><small>امتیاز تیم</small></div><div><b>${fa(chem)}</b><small>هماهنگی هم‌ملیتی‌ها</small></div></div>
+<div class="fpitch">${fm.map((s,i)=>{const p=PM[sl[i]];return `<button class="slot" style="left:${s[1]}%;top:${s[2]}%" data-a="slotPick" data-v="${i}">${p?`<div class="sa">${portrait(p,false)}</div><b>${p.fa.split(' ').pop()}</b><small>${fa(p.ovr)}</small>`:`<div class="sa empty">+</div><small>${POSN[s[0]]}</small>`}</button>`}).join('')}</div>
+<p class="muted">برای هر پست فقط کارت‌هایی را که داری می‌توانی بگذاری. بسته باز کن تا ترکیبت قوی‌تر شود.</p>`};
+function slotSheet(i){const pos=FORM[S.team.f][i][0],used=Object.keys(S.team.s).filter(k=>+k!==i).map(k=>S.team.s[k]);
+const c=Object.keys(S.cards).map(id=>PM[id]).filter(p=>p.pos===pos&&!used.includes(p.id)).sort((a,b)=>b.ovr-a.ovr);
+openModal(`<h3>انتخاب ${POSN[pos]}</h3>${c.length?c.map(p=>`<button class="lb" style="width:100%;text-align:right" data-a="putSlot" data-v="${i}:${p.id}"><span class="rk">${fa(p.ovr)}</span><span class="sp"><b>${p.fa}</b><div class="muted">${NAT[p.nat][1]} ${NAT[p.nat][0]}</div></span><span class="pill gold">${RN[rar(p)]}</span></button>`).join(''):'<p class="muted">برای این پست کارتی نداری. از فروشگاه بسته بخر.</p>'}${S.team.s[i]?`<button class="ghost" style="margin-top:8px" data-a="clearSlot" data-v="${i}">برداشتن بازیکن</button>`:''}`)}
+/* ============ مودال و بسته‌ها ============ */
+function openModal(h,cls){const m=$('#modal');m.className='on '+(cls||'');m.innerHTML='<div class="sheet">'+h+'</div>'}
+function closeModal(){const m=$('#modal');m.className='';m.innerHTML=''}
+function levelSheet(n){const t=CAMP.tierOf[n-1],q=CAMP.levels[n-1],st=S.cl[n]||0;openModal(`<h3>مرحله ${fa(n)}</h3><div class="row" style="margin-bottom:10px"><span class="pill gold">سختی: ${TIER[t]}</span><span class="pill">${fa(q.length)} سؤال</span>${st?`<span class="pill">${'★'.repeat(st)}</span>`:''}</div><p class="muted">حالت‌های این مرحله: ${q.map(x=>MI[x[1]]).join(' ')}. برای عبور حداقل ۶۰٪ پاسخ‌ها باید درست باشد؛ ۸۰٪ دو ستاره و ۱۰۰٪ سه ستاره می‌دهد.</p><p class="muted">پاداش عبور: ${fa(30+n)} سکه و ${fa(40+n)} XP به‌علاوهٔ پاداش ستاره‌ها.</p><button class="cta" data-a="startLevel" data-v="${n}">شروع مرحله</button>`)}
+function dailyInfo(){const pl=S.daily.played===today();openModal(`<h3>مسابقه روزانه</h3><p class="muted">۵ سؤال ترکیبی که برای همه در یک روز یکسان است. جایزهٔ ویژه (سکه، الماس و XP) فقط یک بار در روز داده می‌شود.</p>${pl?'<div class="ban">امروز جایزه را گرفته‌ای؛ می‌توانی برای تمرین دوباره بازی کنی.</div>':''}<button class="cta" data-a="startDaily">${pl?'تمرین دوباره':'شروع'}</button>`)}
+function rollCard(minR){const w=[50,28,14,6,2],r=Math.random()*100;let s=0,tier=0;for(let i=0;i<5;i++){s+=w[i];if(r<s){tier=i;break}}tier=Math.max(tier,minR||0);const pool=PL.filter(p=>rar(p)===tier);return pool[Math.floor(Math.random()*pool.length)]}
+function openPack(type){const cost=type==='gold'?{g:8}:{c:150};if(cost.c&&S.coins<cost.c){toast('سکه کافی نداری');return}if(cost.g&&S.gems<cost.g){toast('الماس کافی نداری');return}
+if(cost.c)S.coins-=cost.c;else S.gems-=cost.g;
+const got=[rollCard(),rollCard(),rollCard(type==='gold'?2:0)].map(p=>{const dup=!!S.cards[p.id];S.cards[p.id]=(S.cards[p.id]||0)+1;let refund=0;if(dup){refund=[10,20,40,80,150][rar(p)];S.coins+=refund}return{p,dup,refund}});
+hist('بازکردن بسته '+(type==='gold'?'طلایی':'برنزی'));checkBadges();save();updateTop();PK={got,flipped:0};
+openModal(`<h3 style="text-align:center">بسته ${type==='gold'?'طلایی':'برنزی'}</h3><p class="muted" style="text-align:center">روی هر کارت بزن تا باز شود.</p><div class="flipwrap">${got.map((g,i)=>`<div class="flip" data-a="flip" data-v="${i}" id="fl${i}"><div class="bk">⚽</div><div class="ft">${cardHTML(g.p)}${g.dup?`<div class="dup">تکراری +${fa(g.refund)} سکه</div>`:''}</div></div>`).join('')}</div><button class="cta sm" id="pkdone" data-a="packDone" style="display:none">افزودن به مجموعه</button>`,'full')}
+let PK=null;
+function flipCard(i){const el=$('#fl'+i);if(!el||el.classList.contains('on'))return;el.classList.add('on');sfx.card();PK.flipped++;const r=rar(PK.got[i].p);if(r>=2)setTimeout(()=>burst(null,null,r*25),300);if(PK.flipped>=3){const b=$('#pkdone');if(b)b.style.display='block'}}
+function cardDetail(id){const p=PM[id],n=NAT[p.nat];openModal(`<div style="width:190px;margin:0 auto 14px">${cardHTML(p)}</div><h3 style="text-align:center;margin:0">${p.fa}</h3><p class="muted" style="text-align:center;margin:2px 0 10px">${p.en}</p><dl class="info"><dt>ملیت</dt><dd>${n[1]} ${n[0]}</dd><dt>جایگاه</dt><dd>${POSN[p.pos]}</dd><dt>باشگاه‌ها</dt><dd>${p.clubs.join('، ')}</dd><dt>رده کارت</dt><dd>${RN[rar(p)]}${S.cards[id]?'':' (قفل)'}</dd></dl><div style="margin-top:10px">${p.f.map(f=>`<div class="lb" style="margin-bottom:6px"><span class="sp">${f}</span></div>`).join('')}</div><div class="grid2" style="margin-top:12px"><button class="cta sm" data-a="pimg" data-v="${id}">${(S.pimg&&S.pimg[id])?'تغییر عکس بازیکن':'افزودن عکس بازیکن'}</button>${(S.pimg&&S.pimg[id])?`<button class="ghost" data-a="pimgDel" data-v="${id}">حذف عکس</button>`:''}</div>`)}
+function roomSheet(){openModal(`<h3>اتاق محلی</h3><p class="muted">تعداد بازیکن‌ها را انتخاب کن و نام‌ها را بنویس.</p><div class="seg" id="seg">${[2,3,4].map(k=>`<button class="${k===(UI.pn||2)?'on':''}" data-a="pn" data-v="${k}">${fa(k)} نفر</button>`).join('')}</div><div id="names" style="margin:12px 0">${Array.from({length:UI.pn||2},(_,i)=>`<input type="text" maxlength="12" value="${i===0?esc(S.name):'بازیکن '+fa(i+1)}" data-pn="${i}" style="margin-bottom:8px">`).join('')}</div><button class="cta" data-a="roomGo">ساخت اتاق و شروع</button>`)}
+function startRoom(names,code){S.rooms[code]=names;save();startQuiz('versus',{players:names.map(n=>({name:n,score:0,ok:0})),room:code,count:5})}
+
+/* ============ اقدام‌ها ============ */
+const ACT={
+nav:v=>{UI.pn=null;go(v)},go:v=>go(v),
+level:v=>levelSheet(+v),locked:()=>toast('ابتدا مرحلهٔ قبلی را تکمیل کن'),locked2:()=>toast('این کارت را از بسته‌ها به دست بیاور'),
+startLevel:v=>startQuiz('level',{level:+v,count:5}),
+quick:v=>startQuiz('quick',{mode:v,count:10}),
+chNew:()=>{const c=Math.random().toString(36).slice(2,7).toUpperCase();startQuiz('seed',{code:c,count:5})},
+chJoin:()=>openModal(`<h3>ورود با کد چالش</h3><input type="text" id="cc" placeholder="XXXXX" maxlength="5" style="direction:ltr;text-align:center;margin-bottom:10px"><button class="cta" data-a="chGo">شروع چالش</button>`),
+chGo:()=>{const c=($('#cc').value||'').trim().toUpperCase();if(c.length<4){toast('کد را کامل وارد کن');return}startQuiz('seed',{code:c,count:5})},
+form:v=>{S.team={f:v,s:{}};save();renderMain()},slotPick:v=>slotSheet(+v),
+putSlot:v=>{const[i,id]=v.split(':');S.team.s[i]=id;save();closeModal();renderMain();sfx.ok()},clearSlot:v=>{delete S.team.s[v];save();closeModal();renderMain()},
+practice:()=>{const pool=Object.keys(S.miss).map(id=>PM[id]);if(pool.length<3){toast('هنوز اشتباه کافی نداری؛ چند مسابقه بازی کن');return}startQuiz('quick',{practice:1,pool,count:Math.min(10,pool.length)})},
+share:()=>{const r=UI.res,t='در FOOTBALL LEGENDS '+fa(r.ok)+' از '+fa(r.n)+' سؤال را درست زدم و به سطح '+fa(lvlOf(S.xp))+' رسیدم.'+(r.code?' کد چالش: '+r.code+' — بیا بازی کن و امتیازت را با من مقایسه کن!':' بازیکن‌ها را بشناس!');if(navigator.share)navigator.share({text:t}).catch(()=>{});else if(navigator.clipboard)navigator.clipboard.writeText(t).then(()=>toast('متن نتیجه کپی شد'),()=>toast(t));else toast(t)},
+seen:()=>{S.seen=true;save();closeModal()},dailyInfo:()=>dailyInfo(),startDaily:()=>startQuiz('daily',{count:5}),
+opt:v=>answer(v),boost:v=>boost(v),retry:()=>retry(),showAns:()=>showAnswer(),next:()=>nextQ(),turnGo:()=>startTurn(),
+quitAsk:()=>{timerStop();openModal(`<h3>خروج از مسابقه؟</h3><p class="muted">پیشرفت این مسابقه از بین می‌رود.</p><div class="grid2"><button class="cta sm alt" data-a="resume">ادامه مسابقه</button><button class="ghost" data-a="quit">خروج</button></div>`)},
+resume:()=>{closeModal();if(Q&&Q.st==='play')timerRun()},
+quit:()=>{closeModal();timerStop();const k=Q&&Q.kind;Q=null;go(k==='level'?'levels':'home')},
+pack:v=>openPack(v),flip:v=>flipCard(+v),packDone:()=>{closeModal();if(UI.view==='cards')renderMain();updateTop()},
+cardView:v=>cardDetail(v),cf:v=>{UI.cf=+v;renderMain()},
+buy:v=>{const s=SHOP.find(x=>x.id===v)||SHOP2.find(x=>x.id===v);if(!s)return;if(s.type&&isOwned(s))return;if(s.cur==='c'?S.coins<s.p:S.gems<s.p){toast('موجودی کافی نیست');return}
+if(s.cur==='c')S.coins-=s.p;else S.gems-=s.p;sfx.coin();
+if(s.give)s.give();else if(s.type==='av'){S.own.av.push(s.e);S.avatar=s.e;S.photo=null}else if(s.type==='fr'){S.own.fr.push(s.v);S.frame=s.v}else{S.own.th.push(s.v);S.theme=s.v}
+save();toast('خرید انجام شد');render()},
+claim:v=>{const m=MISSIONS().find(x=>x.id===v);if(!m||m.done()||m.cur()<m.max)return;if(m.d)S.m.claimed[v]=1;else S.cp[v]=1;earn(m.r);sfx.win();burst();toast('جایزه دریافت شد: '+rtxt(m.r));renderMain()},
+claimDaily:()=>{if(!dailyAvail())return;S.daily.streak=S.daily.last===yesterday()?S.daily.streak+1:1;S.daily.last=today();const r=R7[(S.daily.streak-1)%7];earn({coins:r.c,gems:r.g,xp:r.x});sfx.win();burst();toast('جایزهٔ روز '+fa(S.daily.streak)+': '+r.t);hist('جایزه روزانه، روز '+fa(S.daily.streak));render();if(r.p)setTimeout(()=>{S.gems+=8;openPack('gold')},500)},
+setAv:v=>{S.avatar=v;S.photo=null;save();render()},setFr:v=>{S.frame=v;save();render()},setTh:v=>{S.theme=v;save();render()},
+pimg:v=>{UI.pid=v;$('#pfile').click()},pimgDel:v=>{delete S.pimg[v];save();cardDetail(v);render()},photo:()=>$('#file').click(),photoDel:()=>{S.photo=null;save();render()},
+musicT:()=>{S.set.musicOn=!S.set.musicOn;if(S.set.musicOn)musicStart();else musicStop();save();renderMain()},
+resetAsk:()=>openModal(`<h3>بازنشانی همه چیز؟</h3><p class="muted">سکه، کارت‌ها، مرحله‌ها و تنظیمات پاک می‌شوند و قابل بازگشت نیست.</p><div class="grid2"><button class="ghost" data-a="closeM">انصراف</button><button class="cta sm" data-a="resetDo" style="background:var(--bad);color:#fff;box-shadow:none">بازنشانی</button></div>`),
+closeM:()=>closeModal(),
+resetDo:()=>{try{localStorage.removeItem(KEY)}catch(e){}memSave=null;S=defaults();closeModal();Q=null;go('home');toast('پیشرفت بازنشانی شد')},
+roomNew:()=>{UI.pn=2;roomSheet()},pn:v=>{UI.pn=+v;roomSheet()},
+roomGo:()=>{let names=[...document.querySelectorAll('[data-pn]')].map((e,i)=>e.value.trim()||'بازیکن '+fa(i+1));if(names.length<2)names=Array.from({length:UI.pn||2},(_,i)=>i===0?S.name:'بازیکن '+fa(i+1));const code='FL-'+Math.random().toString(36).slice(2,6).toUpperCase();toast('کد اتاق (فقط روی این دستگاه): '+code);startRoom(names,code)},
+roomJoin:()=>openModal(`<h3>پیوستن با کد</h3><p class="muted">کدی که قبلاً روی همین دستگاه ساخته‌ای را وارد کن تا همان بازیکن‌ها دوباره بازی کنند. اتاق‌های دستگاه‌های دیگر بدون سرور قابل دسترسی نیستند.</p><input type="text" id="rc" placeholder="FL-XXXX" maxlength="7" style="direction:ltr;text-align:center;margin-bottom:10px"><button class="cta" data-a="roomJoinGo">پیوستن</button>`),
+roomJoinGo:()=>{const c=($('#rc').value||'').trim().toUpperCase();if(S.rooms[c])startRoom(S.rooms[c],c);else toast('این کد روی این دستگاه ساخته نشده است. مسابقهٔ آنلاین واقعی نیازمند سرور است.')}};
+document.addEventListener('click',e=>{if(e.target.id==='modal'){if(!$('#modal').classList.contains('full')){closeModal();if(Q&&UI.view==='quiz'&&Q.st==='play'&&!TM)timerRun()}return}
+const t=e.target.closest('[data-a]');if(!t||t.disabled)return;ac();musicStart();if(!['opt','flip'].includes(t.dataset.a))sfx.tap();const f=ACT[t.dataset.a];if(f)f(t.dataset.v,t,e)});
+document.addEventListener('input',e=>{const k=e.target.dataset.in;if(!k)return;if(k==='sfx'||k==='music'){S.set[k]=e.target.value/100;save();if(k==='sfx')sfx.tap()}});
+document.addEventListener('change',e=>{if(e.target.dataset.in==='name'){S.name=(e.target.value.trim()||'بازیکن جدید').slice(0,16);save();updateTop()}});
+$('#file').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{const im=new Image();im.onload=()=>{const c=document.createElement('canvas');c.width=c.height=112;const g=c.getContext('2d'),s=Math.min(im.width,im.height);g.drawImage(im,(im.width-s)/2,(im.height-s)/2,s,s,0,0,112,112);S.photo=c.toDataURL('image/jpeg',.8);save();render();toast('عکس پروفایل ذخیره شد')};im.onerror=()=>toast('این فایل تصویر معتبری نیست');im.src=rd.result};rd.readAsDataURL(f);e.target.value=''});
+
+$('#pfile').addEventListener('change',e=>{const f=e.target.files[0],id=UI.pid;if(!f||!id)return;const rd=new FileReader();rd.onload=()=>{const im=new Image();im.onload=()=>{const c=document.createElement('canvas');c.width=160;c.height=192;const g=c.getContext('2d'),r=Math.max(160/im.width,192/im.height),w=im.width*r,h=im.height*r;g.drawImage(im,(160-w)/2,0,w,h);S.pimg[id]=c.toDataURL('image/jpeg',.82);save();toast('عکس روی کارت و مرحله‌ها اعمال شد');cardDetail(id);render()};im.onerror=()=>toast('فایل تصویر معتبر نیست');im.src=rd.result};rd.readAsDataURL(f);e.target.value=''});
+
+/* ============ رقابت محلی (بدون اینترنت) ============ */
+VIEWS.online=function(){return backBar('رقابت با دوستان','play')+`<p class="muted" style="margin-top:0">بدون اینترنت: یا چند نفر روی یک گوشی به‌نوبت بازی می‌کنید، یا یک کد چالش می‌سازید و دوستتان همان سؤال‌ها را روی گوشی خودش بازی می‌کند.</p>`+`<h3>چالش با کد</h3><p class="muted" style="margin-top:0">کد را به دوستت بگو؛ هر دو همان ۵ سؤال را جداگانه بازی می‌کنید و نتیجه را مقایسه می‌کنید.</p><div class="grid2"><button class="cta sm" data-a="chNew">ساخت چالش</button><button class="ghost" data-a="chJoin">ورود با کد</button></div><h3>روی یک گوشی</h3><button class="cta alt" data-a="roomNew">ساخت اتاق ۲ تا ۴ نفره</button><button class="ghost" style="margin-top:10px" data-a="roomJoin">پیوستن با کد اتاق</button>`};
+
+/* ============ شروع ============ */
+(function init(){try{localStorage.setItem('__t','1');localStorage.removeItem('__t')}catch(e){storageOK=false}
+ensureDaily();checkBadges();save();render();
+if(!S.seen)openModal(`<h3>خوش آمدی</h3><div class="shopi"><em>🎯</em><div><b>مرحله‌ها</b><small>هر مرحله ۵ سؤال دارد و هیچ سؤالی تکراری نیست؛ حداقل ۶۰٪ درست یعنی عبور.</small></div></div><div class="shopi"><em>💡</em><div><b>کمکی‌ها</b><small>سرنخ، حذف گزینه و آشکارسازی تصویر؛ هر کدام کمی از امتیاز می‌کاهند.</small></div></div><div class="shopi"><em>🔥</em><div><b>کومبو</b><small>پاسخ‌های درست پشت‌سرهم امتیاز بیشتری می‌دهند.</small></div></div><div class="shopi"><em>🃏</em><div><b>کارت‌ها</b><small>با سکه بسته بخر و برای هر کارت عکس بازیکن بگذار.</small></div></div><button class="cta" data-a="seen">شروع</button>`)})();
+</script>
+</body>
+</html>
